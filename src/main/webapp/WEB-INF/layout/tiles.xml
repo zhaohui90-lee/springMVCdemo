@@ -21,6 +21,6 @@
     </definition>
 
     <definition name="jbaue" extends="base">
-        <put-attribute name="body" value="/WEB-INF/views/user/jbaue.jsp"/>
+        <put-attribute name="body" value="/WEB-INF/views/user/userInfo.jsp"/>
     </definition>
 </tiles-definitions>
