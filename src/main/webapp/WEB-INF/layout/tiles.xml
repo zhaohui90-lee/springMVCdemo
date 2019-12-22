@@ -20,7 +20,7 @@
         <put-attribute name="body" value="/WEB-INF/views/spittle.jsp"/>
     </definition>
 
-    <definition name="jbaue" extends="base">
+    <definition name="user/userInfo" extends="base">
         <put-attribute name="body" value="/WEB-INF/views/user/userInfo.jsp"/>
     </definition>
 </tiles-definitions>
