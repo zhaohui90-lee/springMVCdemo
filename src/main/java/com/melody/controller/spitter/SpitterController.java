@@ -81,6 +81,6 @@ public class SpitterController {
     @RequestMapping(value = "/{userName}",method = RequestMethod.GET)
     public String showSpittleProfile(@PathVariable String userName,Model model){
         logger.info(userName);
-        return "user/" + userName;
+        return "user/userInfo";
     }
 }
