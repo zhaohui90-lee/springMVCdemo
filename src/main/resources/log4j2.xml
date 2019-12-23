@@ -2,12 +2,12 @@
 <Configuration status="INFO">
     <Appenders>
         <Console name="Console" target="SYSTEM_OUT">
-            <PatternLayout pattern="%d{yyyy-MM-dd HH:mm:ss.SSS} %highlight{%-5level} [%t] %-5level %logger{36} - %msg%n"/>
+            <PatternLayout pattern="%d{yyyy-MM-dd HH:mm:ss.SSS} [%t] %highlight{%-5level} %logger{36} - %msg%n"/>
         </Console>
     </Appenders>
     <Loggers>
         <Logger name="org.springframework.beans.factory" level="DEBUG"/>
-        <Root level="DEBUG">
+        <Root level="All">
             <AppenderRef ref="Console"/>
         </Root>
     </Loggers>

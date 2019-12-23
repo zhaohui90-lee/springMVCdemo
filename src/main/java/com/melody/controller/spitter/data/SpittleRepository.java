@@ -25,7 +25,7 @@ public interface SpittleRepository {
      * @param spittleID 查询需要的ID
      * @return List<Spittle>
      */
-    Spittle findOne(long spittleID);
+    User findOne(long spittleID);
 
     /**
      * save spittle
