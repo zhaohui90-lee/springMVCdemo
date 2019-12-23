@@ -34,8 +34,8 @@ public class SpittleRes implements SpittleRepository {
      * @return Spittle
      */
     @Override
-    public Spittle findOne(long spittleID) {
-        return new Spittle(Long.toString(spittleID),new Date(),123.456D,789.123D);
+    public User findOne(long spittleID) {
+        return new User("",Long.toString(spittleID),"",Long.toString(spittleID));
     }
 
     /**
@@ -46,7 +46,6 @@ public class SpittleRes implements SpittleRepository {
      */
     @Override
     public User saveSpittle(User user) {
-
         return user;
     }
 }
