@@ -1,6 +1,7 @@
 package com.melody.controller.spitter;
 
 import com.melody.controller.spitter.data.SpittleRepository;
+import com.melody.controller.spitter.data.UserNotFoundException;
 import com.melody.pojo.Spittle;
 import com.melody.pojo.User;
 import org.slf4j.Logger;
@@ -47,8 +48,13 @@ public class SpitterController {
         // 显示指定类型
 //        model.addAttribute("spittleList",spittleRepository.findSpittle(
 //                Long.MAX_VALUE,20
-        model.addAttribute(spittleRepository.findSpittle(spittleID,10));
+//        model.addAttribute(spittleRepository.findSpittle(spittleID,10));
 //        ));
+
+        User user = spittleRepository.findOne(spittleID);
+        if (user == null){
+            throw new UserNotFoundException();
+        }
         return "spittle";
     }
 
