@@ -9,12 +9,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.Errors;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
 import javax.validation.Valid;
+import java.io.File;
+import java.io.IOException;
 import java.util.List;
 
 /**
@@ -66,13 +66,17 @@ public class SpitterController {
         return "registerForm";
     }
 
-    @RequestMapping(value = "/register",method = RequestMethod.POST)
-    public String processRegistration(@Valid User user,
+    @RequestMapping(value = "/uploads/user",method = RequestMethod.POST)
+    public String processRegistration(@RequestPart("profileImage") MultipartFile file, @Valid User user,
                                       Errors errors){
         if (errors.hasErrors()){
             return "registerForm";
         }
-
+        try {
+            file.transferTo(new File("E:/IDEA/tmp/"+file.getOriginalFilename()));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
         spittleRepository.saveSpittle(user);
 
         return "redirect:/spittle/" + user.getUserName();
