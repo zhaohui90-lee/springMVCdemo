@@ -1,10 +1,12 @@
 package com.melody.pojo;
 
 import org.hibernate.validator.constraints.Email;
+import org.springframework.web.multipart.MultipartFile;
 
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
+import java.io.File;
 
 /**
  * @author 40431
@@ -30,6 +32,8 @@ public class User {
     @NotNull
     @Size(min = 2,max = 30)
     private String password;
+
+    private MultipartFile profileImage;
 
     public User() {
     }
@@ -79,5 +83,13 @@ public class User {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public MultipartFile getProfileImage() {
+        return profileImage;
+    }
+
+    public void setProfileImage(MultipartFile profileImage) {
+        this.profileImage = profileImage;
     }
 }
