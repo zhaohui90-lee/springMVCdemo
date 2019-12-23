@@ -32,15 +32,15 @@ public class WebConfig extends WebMvcConfigurerAdapter {
      * 配置jsp视图解析器
      * @return resolver
      */
-//    @Bean
-//    public ViewResolver viewResolver(){
-//        InternalResourceViewResolver resolver =
-//                new InternalResourceViewResolver();
-//        resolver.setPrefix("/WEB-INF/views/");
-//        resolver.setSuffix(".jsp");
-//        resolver.setExposeContextBeansAsAttributes(true);
-//        return resolver;
-//    }
+    @Bean
+    public ViewResolver viewResolver(){
+        InternalResourceViewResolver resolver =
+                new InternalResourceViewResolver();
+        resolver.setPrefix("/WEB-INF/views/");
+        resolver.setSuffix(".jsp");
+        resolver.setExposeContextBeansAsAttributes(true);
+        return resolver;
+    }
 
     /**
      * TilesConfigurer
@@ -71,39 +71,38 @@ public class WebConfig extends WebMvcConfigurerAdapter {
      * @param templateEngine
      * @return ThymeleafViewResolver
      */
-    @Bean
-    public ViewResolver viewResolver(SpringTemplateEngine templateEngine){
-        ThymeleafViewResolver resolver = new ThymeleafViewResolver();
-        resolver.setTemplateEngine(templateEngine);
-        return resolver;
-    }
+//    @Bean
+//    public ViewResolver viewResolver(SpringTemplateEngine templateEngine){
+//        ThymeleafViewResolver resolver = new ThymeleafViewResolver();
+//        resolver.setTemplateEngine(templateEngine);
+//        return resolver;
+//    }
 
     /**
      * 设置模板引擎
      * @param templateResolver
      * @return SpringTemplateEngine
      */
-    @Bean
-    public SpringTemplateEngine templateEngine(ITemplateResolver templateResolver){
-        SpringTemplateEngine engine = new SpringTemplateEngine();
-        engine.setTemplateResolver(templateResolver);
-        return engine;
-    }
+//    @Bean
+//    public SpringTemplateEngine templateEngine(ITemplateResolver templateResolver){
+//        SpringTemplateEngine engine = new SpringTemplateEngine();
+//        engine.setTemplateResolver(templateResolver);
+//        return engine;
+//    }
 
     /**
      * 模板解析引擎
      * @return SpringResourceTemplateResolver
      */
-    @Bean
-    public SpringResourceTemplateResolver templateResolver(){
-        SpringResourceTemplateResolver resolver = new SpringResourceTemplateResolver();
-        resolver.setPrefix("/WEB-INF/template/");//设置地址前缀
-        resolver.setSuffix(".html");//设置后缀
-        resolver.setCacheable(false);//设置缓存
-        resolver.setTemplateMode(TemplateMode.HTML);
-        return resolver;
-
-    }
+//    @Bean
+//    public SpringResourceTemplateResolver templateResolver(){
+//        SpringResourceTemplateResolver resolver = new SpringResourceTemplateResolver();
+//        resolver.setPrefix("/WEB-INF/template/");//设置地址前缀
+//        resolver.setSuffix(".html");//设置后缀
+//        resolver.setCacheable(false);//设置缓存
+//        resolver.setTemplateMode(TemplateMode.HTML);
+//        return resolver;
+//    }
 
     /**
      * 配置静态资源的处理
