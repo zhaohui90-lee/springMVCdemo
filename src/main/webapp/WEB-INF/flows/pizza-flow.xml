@@ -6,15 +6,15 @@
     <var name="order" class="com.melody.controller.pizza.Order"/>
     <var name="pizzaFlowActions" class="com.melody.controller.pizza.PizzaFlowActions"/>
 
-    <subflow-state id="identifiedCustomer" subflow="pizza/customer">
+    <subflow-state id="identifiedCustomer" subflow="customer">
         <output name="customer" value="order.customer"/>
         <transition on="customerReady" to="buildOrder"/>
     </subflow-state>
-    <subflow-state id="buildOrder" subflow="pizza/order">
+    <subflow-state id="buildOrder" subflow="order">
         <input name="order" value="order"/>
         <transition on="orderCreated" to="takePayment"/>
     </subflow-state>
-    <subflow-state id="takePayment" subflow="pizza/payment">
+    <subflow-state id="takePayment" subflow="payment">
         <input name="order" value="order"/>
         <transition on="paymentTaken" to="saveOrder"/>
     </subflow-state>

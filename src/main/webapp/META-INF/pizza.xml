@@ -13,6 +13,7 @@
 
     <flow:flow-registry id="flowRegistry">
         <flow:flow-location path="/WEB-INF/flows/pizza-flow.xml" id="pizza"/>
+        <flow:flow-location path="/WEB-INF/flows/customer-flow.xml" id="customer"/>
     </flow:flow-registry>
 
     <flow:flow-executor id="flowExecutor"/>
