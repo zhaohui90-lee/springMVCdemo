@@ -12,11 +12,13 @@ import org.springframework.ui.Model;
 import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.validation.Valid;
 import java.io.File;
 import java.io.IOException;
 import java.util.List;
+import java.util.Map;
 
 /**
  * @author 40431
@@ -72,9 +74,17 @@ public class SpitterController {
         return "registerForm";
     }
 
+    /**
+     * 跨重定向传递对象
+     * @param file User对象包含的MultipartFile文件
+     * @param user post提交的对象
+     * @param errors 校验提交数据正确性
+     * @param model RedirectAttributes
+     * @return
+     */
     @RequestMapping(value = "/uploads/user",method = RequestMethod.POST)
     public String processRegistration(@RequestPart("profileImage") MultipartFile file, @Valid User user,
-                                      Errors errors){
+                                      Errors errors,RedirectAttributes model){
         if (errors.hasErrors()){
             return "registerForm";
         }
@@ -84,13 +94,19 @@ public class SpitterController {
             e.printStackTrace();
         }
         spittleRepository.saveSpittle(user);
-
-        return "redirect:/spittle/" + user.getUserName();
+        model.addAttribute("username",user.getUserName());
+        model.addFlashAttribute("userInfo",user);
+        // redirect---拼接字符串会带来风险 "redirect:/spittle/" + user.getUserName();
+        return "redirect:/spittle/{username}";
     }
 
     @RequestMapping(value = "/{userName}",method = RequestMethod.GET)
     public String showSpittleProfile(@PathVariable String userName,Model model){
         logger.info(userName);
+        String key_userInfo = "userInfo";
+        if (!model.containsAttribute(key_userInfo)){
+            model.addAttribute("userInfo",spittleRepository.findOne(123));
+        }
         return "user/userInfo";
     }
 }
