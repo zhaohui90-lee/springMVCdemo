@@ -97,9 +97,12 @@ public class WebConfig extends WebMvcConfigurerAdapter {
 //    @Bean
 //    public SpringResourceTemplateResolver templateResolver(){
 //        SpringResourceTemplateResolver resolver = new SpringResourceTemplateResolver();
-//        resolver.setPrefix("/WEB-INF/template/");//设置地址前缀
-//        resolver.setSuffix(".html");//设置后缀
-//        resolver.setCacheable(false);//设置缓存
+//        //设置地址前缀
+//        resolver.setPrefix("/WEB-INF/template/");
+//        //设置后缀
+//        resolver.setSuffix(".html");
+//        //设置缓存
+//        resolver.setCacheable(false);
 //        resolver.setTemplateMode(TemplateMode.HTML);
 //        return resolver;
 //    }
