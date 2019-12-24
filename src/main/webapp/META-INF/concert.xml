@@ -10,19 +10,18 @@
     <bean id="piano" class="com.melody.pojo.concert.PianoPerformance"/>
 
     <aop:config>
-    <aop:aspect ref="audienceXml">
+        <aop:aspect ref="audienceXml">
 
-        <aop:pointcut id="performance" expression="execution(* com.melody.pojo.concert.Performance.perform(..))"/>
+            <aop:pointcut id="performance" expression="execution(* com.melody.pojo.concert.Performance.perform(..))"/>
 
-        <aop:before pointcut-ref="performance" method="silenceCellPhones"/>
+            <aop:before pointcut-ref="performance" method="silenceCellPhones"/>
 
-        <aop:before pointcut-ref="performance" method="takeSeats"/>
+            <aop:before pointcut-ref="performance" method="takeSeats"/>
 
-        <aop:after-returning pointcut-ref="performance" method="applause"/>
+            <aop:after-returning pointcut-ref="performance" method="applause"/>
 
-        <aop:after-throwing pointcut-ref="performance" method="demandRefund"/>
+            <aop:after-throwing pointcut-ref="performance" method="demandRefund"/>
 
-    </aop:aspect>
-</aop:config>
-
+        </aop:aspect>
+    </aop:config>
 </beans>
