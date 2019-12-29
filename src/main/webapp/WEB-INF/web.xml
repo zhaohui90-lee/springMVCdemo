@@ -7,7 +7,7 @@
 
   <context-param>
     <param-name>contextConfigLocation</param-name>
-    <param-value>classpath:META-INF/concert.xml,/META-INF/pizza.xml</param-value>
+    <param-value>classpath:META-INF/concert.xml</param-value>
   </context-param>
   
   <listener>

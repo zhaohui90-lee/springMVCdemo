@@ -37,7 +37,7 @@
         <sf:label path="email" cssErrorClass="error">Email</sf:label><sf:input path="email" type="email"/><sf:errors path="email" element="div" cssClass="errors"/> <br/>
         <sf:label path="userName" cssErrorClass="error">Username</sf:label><sf:input path="userName"/><sf:errors path="userName" element="div" cssClass="errors"/> <br/>
         <sf:label path="password" cssErrorClass="error">password</sf:label><sf:password path="password"/><sf:errors path="password" element="div" cssClass="errors"/> <br/>
-        <label>Profile Picture</label>:<input type="file" name="profileImage" accept="image/jpeg,image/png,image/gif"><br/>
+        <label>Profile Picture</label>:<input type="file" name="" accept="image/jpeg,image/png,image/gif"><br/>
         <input type="submit" value="Register"/>
     </sf:form>
 </body>

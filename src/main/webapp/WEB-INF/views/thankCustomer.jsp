@@ -12,5 +12,6 @@
 </head>
 <body>
     <h1>thankCustomer</h1>
+    <a href="${flowExecutionUrl}&_eventId=returnToIndex">Finish</a>
 </body>
 </html>
