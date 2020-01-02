@@ -1,5 +1,6 @@
 package com.melody.controller.pizza;
 
+import com.melody.controller.pizza.service.PaymentDetails;
 import com.melody.pojo.Customer;
 
 /**
@@ -34,4 +35,11 @@ public interface PizzaFlowActionImp {
      * @return true or false
      */
     boolean addCustomer(Customer customer);
+
+    /**
+     * 检查订单是否异常
+     * @param paymentDetails 订单信息
+     * @return true or false
+     */
+    boolean verifyPayment(PaymentDetails paymentDetails);
 }

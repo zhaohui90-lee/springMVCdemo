@@ -1,6 +1,5 @@
 package com.melody.config.spitter;
 
-import org.springframework.web.servlet.DispatcherServlet;
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
 
 import javax.servlet.MultipartConfigElement;
@@ -17,7 +16,7 @@ public class SpitterWebAppInitializer extends AbstractAnnotationConfigDispatcher
 
     @Override
     protected Class<?>[] getServletConfigClasses() {
-        return new Class[]{WebConfig.class};
+        return new Class[]{WebMvcConfig.class};
     }
 
     @Override

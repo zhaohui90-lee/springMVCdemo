@@ -1,5 +1,6 @@
 package com.melody.controller.pizza;
 
+import com.melody.controller.pizza.service.PaymentDetails;
 import com.melody.pojo.Customer;
 import org.apache.velocity.runtime.directive.Foreach;
 
@@ -54,4 +55,17 @@ public class PizzaFlowActions implements PizzaFlowActionImp,Serializable {
     public boolean addCustomer(Customer customer) {
         return false;
     }
+
+    /**
+     * 检查订单是否异常
+     *
+     * @param paymentDetails 订单信息
+     * @return true or false
+     */
+    @Override
+    public boolean verifyPayment(PaymentDetails paymentDetails) {
+        return false;
+    }
+
+
 }
