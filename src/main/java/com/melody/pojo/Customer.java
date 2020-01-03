@@ -2,6 +2,7 @@ package com.melody.pojo;
 
 import org.springframework.stereotype.Component;
 
+import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 
 /**
@@ -10,16 +11,22 @@ import java.io.Serializable;
 @Component
 public class Customer implements Serializable {
 
+    @NotNull
     private String name;
 
+    @NotNull
     private String address;
 
+    @NotNull
     private String city;
 
+    @NotNull
     private String state;
 
+    @NotNull
     private String phoneNumber;
 
+    @NotNull
     private String zipCode;
 
     public String getPhoneNumber() {
