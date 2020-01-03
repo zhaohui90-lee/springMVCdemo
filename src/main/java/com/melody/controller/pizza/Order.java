@@ -16,12 +16,11 @@ import java.util.List;
 @Component
 public class Order implements Serializable {
     private static final long serialVersionUID = 1L;
-    @Autowired
     private Customer customer;
-    @Autowired
     private List<Pizza> pizzas;
     private Payment payment;
 
+    @Autowired
     public Order(Customer customer, List<Pizza> pizzas) {
         this.customer = customer;
         this.pizzas = pizzas;
