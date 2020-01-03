@@ -1,5 +1,6 @@
 package com.melody.controller.pizza;
 
+import com.melody.controller.pizza.service.CustomerNotFoundException;
 import com.melody.controller.pizza.service.PaymentDetails;
 import com.melody.pojo.Customer;
 import org.apache.velocity.runtime.directive.Foreach;
@@ -31,8 +32,20 @@ public class PizzaFlowActions implements PizzaFlowActionImp,Serializable {
      * @return customer
      */
     @Override
-    public boolean lookupCustomer(String phoneNumber) {
-        return false;
+    public Customer lookupCustomer(String phoneNumber) throws CustomerNotFoundException {
+        if ("111".equals(phoneNumber)){
+            Customer customer = new Customer();
+            customer.setName("Craig Walls");
+            customer.setAddress("3700 Dunlavy Rd");
+            customer.setCity("Denton");
+            customer.setState("TX");
+            customer.setZipCode("76210");
+            customer.setPhoneNumber(phoneNumber);
+            return customer;
+        }else{
+            throw new CustomerNotFoundException();
+        }
+
     }
 
     /**

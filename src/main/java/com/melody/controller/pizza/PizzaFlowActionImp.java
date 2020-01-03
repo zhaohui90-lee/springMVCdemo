@@ -20,7 +20,7 @@ public interface PizzaFlowActionImp {
      * @param phoneNumber 用户注册手机号码
      * @return customer
      */
-    boolean lookupCustomer(String phoneNumber);
+    Customer lookupCustomer(String phoneNumber);
 
     /**
      * 检查配送区域
