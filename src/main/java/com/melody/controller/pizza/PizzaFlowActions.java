@@ -5,7 +5,9 @@ import com.melody.controller.pizza.service.PaymentDetails;
 import com.melody.pojo.Customer;
 import org.apache.velocity.runtime.directive.Foreach;
 import org.springframework.stereotype.Service;
+import org.springframework.validation.Errors;
 
+import javax.validation.Valid;
 import java.io.Serializable;
 import java.util.Iterator;
 
@@ -55,7 +57,7 @@ public class PizzaFlowActions implements PizzaFlowActionImp,Serializable {
      * @return true or false
      */
     @Override
-    public boolean checkDeliveryArea(String zipCode) {
+    public boolean checkDeliveryArea(@Valid String zipCode) {
 
         return false;
     }

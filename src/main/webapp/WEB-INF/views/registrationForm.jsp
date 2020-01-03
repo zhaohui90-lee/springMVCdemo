@@ -16,12 +16,12 @@
     <h2>Customer Registration</h2>
     <form:form modelAttribute="customer">
         <input type="hidden" name="_flowExecutorKey" value="${flowExecutionKey}">
-        <b>Phone Number:</b><form:input path="phoneNumber"/><br/>
-        <b>Name:</b><form:input path="name"/><br/>
-        <b>Address:</b><form:input path="address"/><br/>
-        <b>City:</b><form:input path="city"/><br/>
-        <b>State:</b><form:input path="state"/><br/>
-        <b>Zip Code:</b><form:input path="zipCode"/><br/>
+        <b>Phone Number:</b><form:input path="phoneNumber"/><form:errors path="phoneNumber" element="div" cssClass="error"/><br/>
+        <b>Name:</b><form:input path="name"/><form:errors path="name" element="div" cssClass="error"/><br/>
+        <b>Address:</b><form:input path="address"/><form:errors path="address" element="div" cssClass="error"/><br/>
+        <b>City:</b><form:input path="city"/><form:errors path="city" element="div" cssClass="error"/><br/>
+        <b>State:</b><form:input path="state"/><form:errors path="state" element="div" cssClass="error"/><br/>
+        <b>Zip Code:</b><form:input path="zipCode"/><form:errors path="zipCode" element="div" cssClass="error"/><br/>
         <input type="submit" name="_eventId_submit" value="Submit"/>
         <input type="submit" name="_eventId_cancel" value="Cancel"/>
     </form:form>

@@ -2,6 +2,9 @@ package com.melody.controller.pizza;
 
 import com.melody.controller.pizza.service.PaymentDetails;
 import com.melody.pojo.Customer;
+import org.springframework.validation.Errors;
+
+import javax.validation.Valid;
 
 /**
  * @author 40431
@@ -27,7 +30,7 @@ public interface PizzaFlowActionImp {
      * @param zipCode 配送区域
      * @return true or false
      */
-    boolean checkDeliveryArea(String zipCode);
+    boolean checkDeliveryArea(@Valid String zipCode);
 
     /**
      * 添加用户
