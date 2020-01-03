@@ -1,11 +1,14 @@
 package com.melody.pojo;
 
+import org.springframework.stereotype.Component;
+
 import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 
 /**
  * @author 40431
  */
+@Component
 public class Customer implements Serializable {
 
     private String name;
