@@ -1,7 +1,12 @@
 package com.melody.controller.pizza.service;
 
+import org.springframework.stereotype.Component;
+
+import java.io.Serializable;
+
 /**
  * @author 40431
  */
-public class CustomerNotFoundException extends RuntimeException {
+@Component
+public class CustomerNotFoundException extends RuntimeException  {
 }
