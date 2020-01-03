@@ -2,7 +2,6 @@ package com.melody.pojo;
 
 import org.springframework.stereotype.Component;
 
-import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 
 /**
