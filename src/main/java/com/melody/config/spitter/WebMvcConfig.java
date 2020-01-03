@@ -35,8 +35,8 @@ import java.util.List;
  */
 @Configuration
 @EnableWebMvc
-@ComponentScan("com.melody.controller")
-public class WebMvcConfig implements WebMvcConfigurer {
+@ComponentScan(basePackages = "com.melody")
+public class WebMvcConfig extends WebMvcConfigurerAdapter  {
 
     @Autowired
     private WebFlowConfig webFlowConfig;
@@ -137,21 +137,6 @@ public class WebMvcConfig implements WebMvcConfigurer {
 //        return resolver;
 //    }
 
-    @Override
-    public void configurePathMatch(PathMatchConfigurer pathMatchConfigurer) {
-
-    }
-
-    @Override
-    public void configureContentNegotiation(ContentNegotiationConfigurer contentNegotiationConfigurer) {
-
-    }
-
-    @Override
-    public void configureAsyncSupport(AsyncSupportConfigurer asyncSupportConfigurer) {
-
-    }
-
     /**
      * 配置静态资源的处理
      * @param configurer 默认参数
@@ -159,76 +144,6 @@ public class WebMvcConfig implements WebMvcConfigurer {
     @Override
     public void configureDefaultServletHandling(DefaultServletHandlerConfigurer configurer) {
         configurer.enable();
-    }
-
-    @Override
-    public void addFormatters(FormatterRegistry formatterRegistry) {
-
-    }
-
-    @Override
-    public void addInterceptors(InterceptorRegistry interceptorRegistry) {
-
-    }
-
-    @Override
-    public void addResourceHandlers(ResourceHandlerRegistry resourceHandlerRegistry) {
-
-    }
-
-    @Override
-    public void addCorsMappings(CorsRegistry corsRegistry) {
-
-    }
-
-    @Override
-    public void addViewControllers(ViewControllerRegistry viewControllerRegistry) {
-
-    }
-
-    @Override
-    public void configureViewResolvers(ViewResolverRegistry viewResolverRegistry) {
-
-    }
-
-    @Override
-    public void addArgumentResolvers(List<HandlerMethodArgumentResolver> list) {
-
-    }
-
-    @Override
-    public void addReturnValueHandlers(List<HandlerMethodReturnValueHandler> list) {
-
-    }
-
-    @Override
-    public void configureMessageConverters(List<HttpMessageConverter<?>> list) {
-
-    }
-
-    @Override
-    public void extendMessageConverters(List<HttpMessageConverter<?>> list) {
-
-    }
-
-    @Override
-    public void configureHandlerExceptionResolvers(List<HandlerExceptionResolver> list) {
-
-    }
-
-    @Override
-    public void extendHandlerExceptionResolvers(List<HandlerExceptionResolver> list) {
-
-    }
-
-    @Override
-    public Validator getValidator() {
-        return null;
-    }
-
-    @Override
-    public MessageCodesResolver getMessageCodesResolver() {
-        return null;
     }
 
     /**
