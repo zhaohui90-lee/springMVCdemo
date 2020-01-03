@@ -4,6 +4,8 @@ import com.melody.config.spitter.WebMvcConfig;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.validation.Validator;
+import org.springframework.validation.beanvalidation.LocalValidatorFactoryBean;
 import org.springframework.webflow.config.AbstractFlowConfiguration;
 import org.springframework.webflow.definition.registry.FlowDefinitionRegistry;
 import org.springframework.webflow.engine.builder.ViewFactoryCreator;
@@ -23,24 +25,25 @@ public class WebFlowConfig extends AbstractFlowConfiguration {
     private WebMvcConfig webMvcConfig;
 
     @Bean
+    public FlowExecutor flowExecutor(){
+        return getFlowExecutorBuilder(flowRegister())
+                .build();
+    }
+
+    @Bean
     public FlowDefinitionRegistry flowRegister(){
-        return getFlowDefinitionRegistryBuilder()
+        return getFlowDefinitionRegistryBuilder(flowBuilderServices())
                 .setBasePath("/WEB-INF/flows")
                 .addFlowLocationPattern("/**/*-flow.xml")
                 .build();
     }
 
     @Bean
-    public FlowExecutor flowExecutor(){
-        return getFlowExecutorBuilder(flowRegister())
-                .build();
-    }
-
-
-    @Bean
     public FlowBuilderServices flowBuilderServices(){
         return getFlowBuilderServicesBuilder()
                 .setViewFactoryCreator(mvcViewFactoryCreator())
+                .setValidator(validator())
+                .setDevelopmentMode(true)
                 .build();
     }
 
@@ -53,4 +56,8 @@ public class WebFlowConfig extends AbstractFlowConfiguration {
     }
 
 
+    @Bean
+    public LocalValidatorFactoryBean validator(){
+        return new LocalValidatorFactoryBean();
+    }
 }
