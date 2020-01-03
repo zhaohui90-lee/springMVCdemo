@@ -4,7 +4,6 @@
       xsi:schemaLocation="http://www.springframework.org/schema/webflow http://www.springframework.org/schema/webflow/spring-webflow-2.4.xsd">
 
     <var name="order" class="com.melody.controller.pizza.Order"/>
-    <var name="pizzaFlowActions" class="com.melody.controller.pizza.PizzaFlowActions"/>
 
     <subflow-state id="identifyCustomer" subflow="customer">
         <output name="customer" value="order.customer"/>
