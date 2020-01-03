@@ -8,7 +8,7 @@ import javax.servlet.ServletRegistration;
 /**
  * @author 40431
  */
-public class SpitterWebAppInitializer extends AbstractAnnotationConfigDispatcherServletInitializer {
+public class DispatcherServletInitializer extends AbstractAnnotationConfigDispatcherServletInitializer {
     @Override
     protected Class<?>[] getRootConfigClasses() {
         return new Class[]{RootConfig.class};
