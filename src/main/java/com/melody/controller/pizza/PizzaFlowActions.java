@@ -3,6 +3,7 @@ package com.melody.controller.pizza;
 import com.melody.controller.pizza.service.PaymentDetails;
 import com.melody.pojo.Customer;
 import org.apache.velocity.runtime.directive.Foreach;
+import org.springframework.stereotype.Service;
 
 import java.io.Serializable;
 import java.util.Iterator;
@@ -10,6 +11,7 @@ import java.util.Iterator;
 /**
  * @author 40431
  */
+@Service
 public class PizzaFlowActions implements PizzaFlowActionImp,Serializable {
     /**
      * 保存订单成功或者失败

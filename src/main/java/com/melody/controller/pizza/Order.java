@@ -3,6 +3,8 @@ package com.melody.controller.pizza;
 import com.melody.pojo.Customer;
 import com.melody.pojo.Payment;
 import com.melody.pojo.pizza.Pizza;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
 import java.io.Serializable;
 import java.util.List;
@@ -11,9 +13,12 @@ import java.util.List;
  * 实现Serializable序列化
  * @author 40431
  */
+@Component
 public class Order implements Serializable {
     private static final long serialVersionUID = 1L;
+    @Autowired
     private Customer customer;
+    @Autowired
     private List<Pizza> pizzas;
     private Payment payment;
 
