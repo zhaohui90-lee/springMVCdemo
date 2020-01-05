@@ -24,7 +24,7 @@
             then="addCustomer"
             else="deliveryWarning"/>
     </decision-state>
-    <view-state id="deliveryWarning">
+    <view-state id="deliveryWarning" view="checkDeliveryArea">
         <transition on="accept" to="addCustomer"/>
     </view-state>
     <action-state id="addCustomer">

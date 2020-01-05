@@ -3,13 +3,11 @@ package com.melody.controller.pizza;
 import com.melody.controller.pizza.service.CustomerNotFoundException;
 import com.melody.controller.pizza.service.PaymentDetails;
 import com.melody.pojo.Customer;
-import org.apache.velocity.runtime.directive.Foreach;
 import org.springframework.stereotype.Service;
 import org.springframework.validation.Errors;
 
 import javax.validation.Valid;
 import java.io.Serializable;
-import java.util.Iterator;
 
 /**
  * @author 40431
@@ -52,14 +50,17 @@ public class PizzaFlowActions implements PizzaFlowActionImp,Serializable {
 
     /**
      * 检查配送区域
-     *
+     * 校验配送的zipCode
      * @param zipCode 配送区域
      * @return true or false
      */
     @Override
-    public boolean checkDeliveryArea(@Valid String zipCode) {
-
-        return false;
+    public boolean checkDeliveryArea(String zipCode) {
+        if ("".equals(zipCode)){
+            return false;
+        }else{
+            return "12345".equals(zipCode);
+        }
     }
 
     /**

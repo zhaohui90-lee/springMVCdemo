@@ -30,7 +30,7 @@ public interface PizzaFlowActionImp {
      * @param zipCode 配送区域
      * @return true or false
      */
-    boolean checkDeliveryArea(@Valid String zipCode);
+    boolean checkDeliveryArea(String zipCode);
 
     /**
      * 添加用户
