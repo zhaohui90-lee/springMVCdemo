@@ -4,7 +4,10 @@ import com.google.common.util.concurrent.ThreadFactoryBuilder;
 
 import java.util.concurrent.*;
 
-public class OOMTestMain {
+/**
+ * @author 40431
+ */
+public class TaskTest {
 
     /**
      * 池中所保存的线程数，包括空闲线程。
@@ -27,12 +30,6 @@ public class OOMTestMain {
     private final static ArrayBlockingQueue<Runnable> WORK_QUENE = new ArrayBlockingQueue<Runnable>(5);
 
     public static void main(String[] args) {
-//        ExecutorService es = Executors.newCachedThreadPool();
-//        int i = 0;
-//        while (true){
-//            System.out.println("------" + i);
-//            es.submit(new Task(i++));
-//        }
         ThreadFactory namedThreadFactory = new ThreadFactoryBuilder().setNameFormat("XX-task-%d").build();
 
         ExecutorService pool = new ThreadPoolExecutor(CORE_POOL_SIZE, MAXIMUM_POOL_SIZE, KEEP_ALIVE_TIME,TimeUnit.MILLISECONDS,
