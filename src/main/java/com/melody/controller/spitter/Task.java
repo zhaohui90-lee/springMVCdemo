@@ -21,6 +21,6 @@ public class Task implements Runnable{
      */
     @Override
     public void run() {
-
+        System.out.println("这是一个新的线程...");
     }
 }
