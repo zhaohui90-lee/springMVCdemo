@@ -14,7 +14,7 @@
     <view-state id="createPizza" model="flowScope.pizza">
         <on-entry>
             <set name="flowScope.pizza" value="new com.melody.pojo.pizza.Pizza()"/>
-            <evaluate expression="T(com.melody.controller.pizza.Order).asList()" result="viewScope.toppingsList"/>
+            <evaluate expression="T(com.melody.pojo.pizza.Topping).asList()" result="viewScope.toppingsList"/>
         </on-entry>
         <transition on="addPizza" to="showOrder">
             <evaluate expression="order.addPizza(flowScope.pizza)"/>

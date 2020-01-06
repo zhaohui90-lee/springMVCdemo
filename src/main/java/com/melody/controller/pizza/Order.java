@@ -3,6 +3,7 @@ package com.melody.controller.pizza;
 import com.melody.pojo.Customer;
 import com.melody.pojo.Payment;
 import com.melody.pojo.pizza.Pizza;
+import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -53,4 +54,8 @@ public class Order implements Serializable {
     public void setPayment(Payment payment) {
         this.payment = payment;
     }
+
+//    public float getTotal(){
+//
+//    }
 }
