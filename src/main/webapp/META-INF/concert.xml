@@ -5,9 +5,18 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
                         http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd">
 
-    <bean id="audienceXml" class="com.melody.aspect.AudienceXml"/>
+    <bean id="audienceXml" class="com.melody.aspect.AudienceXml">
+        <constructor-arg type="int" index="0">
+            <value>123132123</value>
+        </constructor-arg>
+        <constructor-arg type="String" index="1">
+            <value>123</value>
+        </constructor-arg>
+    </bean>
 
     <bean id="piano" class="com.melody.pojo.concert.PianoPerformance"/>
+
+
 
     <aop:config>
         <aop:aspect ref="audienceXml">
