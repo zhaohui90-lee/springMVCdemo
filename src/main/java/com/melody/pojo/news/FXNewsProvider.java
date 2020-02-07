@@ -9,9 +9,9 @@ import org.springframework.stereotype.Component;
  */
 @Component
 public class FXNewsProvider {
-    @Autowired
+
     private IFXNewsListener newsListener;
-    @Autowired
+
     private IFXNewsPersistener newsPersistener;
 
 //    public FXNewsProvider(){
@@ -28,6 +28,7 @@ public class FXNewsProvider {
      * @param newsListener
      * @param newsPersistener
      */
+    @Autowired
     public FXNewsProvider(IFXNewsListener newsListener,IFXNewsPersistener newsPersistener){
         this.newsListener = newsListener;
         this.newsPersistener = newsPersistener;
