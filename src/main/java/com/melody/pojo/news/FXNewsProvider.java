@@ -9,9 +9,13 @@ public class FXNewsProvider {
     private IFXNewsListener newsListener;
     private IFXNewsPersistener newsPersistener;
 
-    public FXNewsProvider(){
-        newsListener = new DowJonesNewsListener();
-        newsPersistener = new DowJonesNewsPersistener();
+//    public FXNewsProvider(){
+//        newsListener = new DowJonesNewsListener();
+//        newsPersistener = new DowJonesNewsPersistener();
+//    }
+    public FXNewsProvider(IFXNewsListener newsListener,IFXNewsPersistener newsPersistener){
+        this.newsListener = newsListener;
+        this.newsPersistener = newsPersistener;
     }
 
     public void getAndPersistNews(){
