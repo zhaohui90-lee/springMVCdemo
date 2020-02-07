@@ -13,6 +13,12 @@ public class FXNewsProvider {
 //        newsListener = new DowJonesNewsListener();
 //        newsPersistener = new DowJonesNewsPersistener();
 //    }
+
+    /**
+     * 构造方法注入
+     * @param newsListener
+     * @param newsPersistener
+     */
     public FXNewsProvider(IFXNewsListener newsListener,IFXNewsPersistener newsPersistener){
         this.newsListener = newsListener;
         this.newsPersistener = newsPersistener;
@@ -30,10 +36,18 @@ public class FXNewsProvider {
         }
     }
 
+    /**
+     * setter方法注入
+     * @param newsListener
+     */
     public void setNewsListener(IFXNewsListener newsListener) {
         this.newsListener = newsListener;
     }
 
+    /**
+     * setter方法注入
+     * @param newsPersistener
+     */
     public void setNewsPersistener(IFXNewsPersistener newsPersistener) {
         this.newsPersistener = newsPersistener;
     }
