@@ -29,4 +29,12 @@ public class FXNewsProvider {
             newsListener.postProcessIfNecessary(id);
         }
     }
+
+    public void setNewsListener(IFXNewsListener newsListener) {
+        this.newsListener = newsListener;
+    }
+
+    public void setNewsPersistener(IFXNewsPersistener newsPersistener) {
+        this.newsPersistener = newsPersistener;
+    }
 }
