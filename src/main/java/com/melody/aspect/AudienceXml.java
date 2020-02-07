@@ -5,6 +5,9 @@ package com.melody.aspect;
  */
 public class AudienceXml {
 
+    public AudienceXml(int number,String str) {
+
+    }
 
     public void silenceCellPhones(){
         System.out.println("silence cell phones...");
