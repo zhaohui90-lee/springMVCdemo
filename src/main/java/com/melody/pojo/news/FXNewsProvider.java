@@ -46,6 +46,14 @@ public class FXNewsProvider {
         }
     }
 
+    @Override
+    public String toString() {
+        return "FXNewsProvider{" +
+                "newsListener=" + newsListener +
+                ", newsPersistener=" + newsPersistener +
+                '}';
+    }
+
     /**
      * setter方法注入
      * @param newsListener
