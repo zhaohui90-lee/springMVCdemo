@@ -8,4 +8,19 @@
         <constructor-arg type="java.lang.String" value="werwer"/>
     </bean>
 
+   <bean id="mock2" class="com.melody.pojo.mock.MockDemoObject">
+       <property name="param1">
+           <list>
+               <value>something</value>
+               <value>12313</value>
+               <value>adasdsa</value>
+           </list>
+       </property>
+       <property name="param2">
+           <list>
+               <value>stringValue1</value>
+               <value>stringValue2</value>
+           </list>
+       </property>
+   </bean>
 </beans>
