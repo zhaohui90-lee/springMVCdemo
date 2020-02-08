@@ -10,4 +10,16 @@
         <constructor-arg ref="id"/>
     </bean>
     <bean id="id" class="java.lang.String"/>
+
+    <bean id="foo1" class="com.melody.pojo.myfactory.Foo">
+        <property name="barInterface" ref="bar1"/>
+    </bean>
+
+    <bean id="bar1" factory-bean="barFactory" factory-method="getInstance">
+        <constructor-arg ref="id"/>
+    </bean>
+
+    <bean id="barFactory" class="com.melody.pojo.myfactory.NonStaticInterfaceFactory"/>
+
+
 </beans>
