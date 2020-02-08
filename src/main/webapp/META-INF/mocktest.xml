@@ -22,5 +22,21 @@
                <value>stringValue2</value>
            </list>
        </property>
+       <property name="mapping">
+           <map>
+               <entry key="strValue">
+                   <value>something</value>
+               </entry>
+               <entry key="strValue" value="123123"/>
+
+           </map>
+       </property>
+       <property name="emailAddress">
+           <props>
+               <prop key="author">fhenn@163.com</prop>
+               <prop key="support">404314000@qq.com</prop>
+           </props>
+       </property>
    </bean>
+
 </beans>

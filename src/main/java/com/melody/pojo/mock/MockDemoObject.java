@@ -2,10 +2,30 @@ package com.melody.pojo.mock;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.Map;
+import java.util.Properties;
 
 public class MockDemoObject {
     private List param1;
     private String[] param2;
+    private Map mapping;
+    private Properties emailAddress;
+
+    public Properties getEmailAddress() {
+        return emailAddress;
+    }
+
+    public void setEmailAddress(Properties emailAddress) {
+        this.emailAddress = emailAddress;
+    }
+
+    public Map getMapping() {
+        return mapping;
+    }
+
+    public void setMapping(Map mapping) {
+        this.mapping = mapping;
+    }
 
     public List getParam1() {
         return param1;
