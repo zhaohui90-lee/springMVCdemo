@@ -7,6 +7,7 @@
 <!--        <property name="dateOfNextDay" ref="nextDayDate"/>-->
 <!--    </bean>-->
 <!--    <bean id="nextDayDate" class="com.melody.pojo.factorybean.NextDayDateFactoryBean"/>-->
+
     <bean id="newsBean" class="com.melody.pojo.news.FXNewsBean" scope="prototype"/>
 
     <bean id="mockPersister" class="com.melody.pojo.factorybean.MockNewsPersister"/>
