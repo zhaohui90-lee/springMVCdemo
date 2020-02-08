@@ -18,10 +18,10 @@
 <!--    <bean id="djNewsListener" class="com.melody.pojo.news.DowJonesNewsListener"/>-->
 <!--    <bean id="djNewsPersistener" class="com.melody.pojo.news.DowJonesNewsPersistener"/>-->
 
-<!--    <bean id="newProvider" class="com.melody.pojo.news.FXNewsProvider">-->
-<!--        <constructor-arg index="0" ref="jdNewsListener"/>-->
-<!--        <constructor-arg index="1" ref="jdNewsPersistener"/>-->
-<!--    </bean>-->
-<!--    <bean id="jdNewsListener" class="com.melody.pojo.news.DowJonesNewsListener"/>-->
-<!--    <bean id="jdNewsPersistener" class="com.melody.pojo.news.DowJonesNewsPersistener"/>-->
+    <bean id="newProvider" class="com.melody.pojo.news.FXNewsProvider">
+        <constructor-arg index="0" ref="jdNewsListener"/>
+        <constructor-arg index="1" ref="jdNewsPersistener"/>
+    </bean>
+    <bean id="jdNewsListener" class="com.melody.pojo.news.DowJonesNewsListener"/>
+    <bean id="jdNewsPersistener" class="com.melody.pojo.news.DowJonesNewsPersistener"/>
 </beans>

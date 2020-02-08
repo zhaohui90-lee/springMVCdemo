@@ -39,4 +39,8 @@
        </property>
    </bean>
 
+    <bean id="classAInstance" class="com.melody.pojo.mock.ClassAInstance" depends-on="configSetup,configSetup2"/>
+    <bean id="configSetup" class="com.melody.pojo.mock.SystemConfigurationSetup"/>
+    <bean id="configSetup2" class="com.melody.pojo.mock.SystemConfigurationSetup2"/>
+
 </beans>
