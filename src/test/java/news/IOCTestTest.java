@@ -72,6 +72,7 @@ public class IOCTestTest {
     }
 
     public static BeanFactory bindViaCode(BeanDefinitionRegistry registry){
+        // 容器启动工作
         AbstractBeanDefinition newsProvider = new RootBeanDefinition(FXNewsProvider.class);
         AbstractBeanDefinition newsListener = new RootBeanDefinition(DowJonesNewsListener.class);
         AbstractBeanDefinition newsPersistener = new RootBeanDefinition(DowJonesNewsPersistener.class);

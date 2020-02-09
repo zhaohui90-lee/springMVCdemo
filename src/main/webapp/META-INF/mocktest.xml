@@ -51,4 +51,12 @@
     <bean id="configSetup" class="com.melody.pojo.mock.SystemConfigurationSetup"/>
     <bean id="configSetup2" class="com.melody.pojo.mock.SystemConfigurationSetup2"/>
 
+    <bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+        <property name="locations">
+            <list>
+                <value>jdbc.properties</value>
+            </list>
+        </property>
+    </bean>
+
 </beans>
