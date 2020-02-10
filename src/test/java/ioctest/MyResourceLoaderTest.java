@@ -57,7 +57,7 @@ public class MyResourceLoaderTest {
 
     @Test
     public void fooBar2(){
-        ApplicationContext container = new ClassPathXmlApplicationContext("resourceLoader.xml");
+        ApplicationContext container = new ClassPathXmlApplicationContext("classpath:resourceLoader.xml");
         FooBar2 fooBar2 = (FooBar2) container.getBean("fooBar2");
         System.out.println("bean out--->" + fooBar2.getResourceLoader());// org.springframework.context.support.ClassPathXmlApplicationContext@35645047: startup date [Mon Feb 10 10:56:36 CST 2020]; root of context hierarchy
     }
