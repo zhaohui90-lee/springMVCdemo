@@ -10,5 +10,5 @@
 
     <bean id="newsBean" class="com.melody.pojo.news.FXNewsBean" scope="prototype"/>
 
-    <bean id="mockPersister" class="com.melody.pojo.factorybean.MockNewsPersister"/>
+<!--    <bean id="mockPersister" class="com.melody.pojo.factorybean.MockNewsPersister"/>-->
 </beans>

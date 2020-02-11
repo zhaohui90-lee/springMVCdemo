@@ -29,7 +29,7 @@ public class IOCTestTest {
     @Test
     public void test(){
         ApplicationContext context = new ClassPathXmlApplicationContext("news.xml");
-        FXNewsProvider newsProvider = (FXNewsProvider) context.getBean("FXNewsProvider");
+        FXNewsProvider newsProvider = (FXNewsProvider) context.getBean("newsProvider");
         newsProvider.getAndPersistNews();
         System.out.println(newsProvider);
     }
