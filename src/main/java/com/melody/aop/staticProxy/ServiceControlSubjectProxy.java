@@ -1,4 +1,4 @@
-package com.melody.aop.staic_aop;
+package com.melody.aop.staticProxy;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;

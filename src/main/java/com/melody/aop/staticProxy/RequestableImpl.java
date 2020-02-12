@@ -1,4 +1,4 @@
-package com.melody.aop.staic_aop;
+package com.melody.aop.staticProxy;
 
 public class RequestableImpl implements IRequestable {
     @Override

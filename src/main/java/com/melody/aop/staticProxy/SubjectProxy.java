@@ -1,4 +1,4 @@
-package com.melody.aop.staic_aop;
+package com.melody.aop.staticProxy;
 
 public class SubjectProxy implements ISubject {
     private ISubject subject;
