@@ -1,9 +1,13 @@
 package com.melody.aop;
 
+import com.melody.aop.dynamicProxy.RequestCtrlInvocationHandler;
+import com.melody.aop.staticProxy.ISubject;
+import com.melody.aop.staticProxy.SubjectImpl;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.junit.Test;
 
+import java.lang.reflect.Proxy;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -32,5 +36,14 @@ public class ServiceControlSubjectProxyTest {
         }
 
 
+    }
+
+    @Test
+    public void dynamicProxyTest(){
+//        ISubject subject = Proxy.newProxyInstance(
+//                ProxyRunner.class.getClassLoader(),
+//                new Class[]{ISubject.class},
+//                new RequestCtrlInvocationHandler(new SubjectImpl()));
+//        subject.request();
     }
 }
