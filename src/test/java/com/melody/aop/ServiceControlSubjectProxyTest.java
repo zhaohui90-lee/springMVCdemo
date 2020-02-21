@@ -25,11 +25,14 @@ public class ServiceControlSubjectProxyTest {
         try {
             Date sysTime = df.parse(df.format(cal.getTime()));
             Date startTime = df.parse("10:00:00");
-            Date endTime = df.parse("06:00:00");
-            if (sysTime.before(startTime) && sysTime.after(endTime)){
-                System.out.println("error...");
-            }else{
+            Date endTime = df.parse("18:00:00");
+            logger.info("sysTime: " + sysTime);
+            logger.info("startTime: " + startTime);
+            logger.info("endTime: " + endTime);
+            if (sysTime.after(startTime) && sysTime.before(endTime)){
                 System.out.println("proxy...");
+            }else{
+                System.out.println("error...");
             }
         } catch (ParseException e) {
             logger.error(e);
