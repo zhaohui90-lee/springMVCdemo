@@ -3,23 +3,17 @@ package sort;
 import edu.princeton.cs.algs4.StdRandom;
 import edu.princeton.cs.algs4.Stopwatch;
 
-public class Select {
+public class Insertion {
     public static void sort(Comparable[] a){
-        // 将a[]按升序排列
+        // a[]按升序排列
         int N = a.length;
         for (int i = 0; i < N; i++) {
-            // 将a[i]和a[i+1..N]中最小的元素交换
-            // 最小元素索引
-            int min = i;
-            for (int j = i+1; j < N; j++) {
-                if (less(a[j],a[min])){
-                    min = j;
-                }
+            // 将a[i]插入到a[i-1] a[i-2]之中
+            for (int j = i; j >0 && less(a[j],a[j-1]); j--) {
+                exch(a,j,j-1);
             }
-            exch(a,i,min);
         }
     }
-
     private static boolean less(Comparable v,Comparable w){
         return v.compareTo(w) < 0;
     }
