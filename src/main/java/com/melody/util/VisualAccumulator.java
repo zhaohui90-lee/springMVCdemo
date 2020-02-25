@@ -24,6 +24,7 @@ public class VisualAccumulator {
     public double mean(){
         return total/N;
     }
+    @Override
     public String toString(){
         return "Mean (" + N + " values): "
                 + String.format("%7.5f",mean());

@@ -2,6 +2,7 @@ package collection;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Stack;
 
 public class FixedCapacityStack<Item> {
     private Item[] a;
@@ -36,5 +37,15 @@ public class FixedCapacityStack<Item> {
         a[N] = null;// 避免对象游离
         if (N > 0 && N == a.length/4) resize(a.length/2);
         return item;
+    }
+
+    public static void main(String[] args) {
+        FixedCapacityStack<String> fixedCapacityStack = new FixedCapacityStack<>(10);
+        fixedCapacityStack.push("a");
+        System.out.println(fixedCapacityStack.pop());
+
+//        Stack<String> strings = new Stack<>();
+//        strings.push("sss");
+//        System.out.println(strings.elementAt(0));
     }
 }
