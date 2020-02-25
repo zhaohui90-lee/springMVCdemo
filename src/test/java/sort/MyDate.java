@@ -28,4 +28,7 @@ public class MyDate implements Comparable<MyDate> {
         if (this.day < that.day) return -1;
         return 0;
     }
+    public String toString(){
+        return month + "/" + day + "/" + year;
+    }
 }
