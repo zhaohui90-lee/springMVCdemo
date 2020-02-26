@@ -50,7 +50,7 @@ public class Shell {
             a[i] = StdRandom.uniform();
         }
         Stopwatch timer = new Stopwatch();
-        sort(a); // time: 0.176 seconds time: 0.145 seconds
+        sort(a); // time: 0.176 seconds time: 0.145 seconds time: 0.184 seconds time: 0.139 seconds time: 0.238 seconds
         double time = timer.elapsedTime();
         System.out.println("time: " + time + " seconds");
     }

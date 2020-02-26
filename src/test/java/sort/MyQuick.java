@@ -8,7 +8,7 @@ import edu.princeton.cs.algs4.Stopwatch;
  */
 public class MyQuick {
     public static void sort(Comparable[] a){
-//        StdRandom.shuffle(a);
+        StdRandom.shuffle(a);
         sort(a,0,a.length-1);
     }
 
@@ -52,7 +52,7 @@ public class MyQuick {
             a[i] = StdRandom.uniform();
         }
         Stopwatch timer = new Stopwatch();
-        sort(a); // time: 0.199 seconds time: 0.206 seconds time: 0.227 seconds
+        sort(a); // time: 0.199 seconds time: 0.206 seconds time: 0.227 seconds time: 0.122 seconds time: 0.148 seconds
         double time = timer.elapsedTime();
         System.out.println("time: " + time + " seconds");
     }
