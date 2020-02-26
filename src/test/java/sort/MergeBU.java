@@ -3,28 +3,19 @@ package sort;
 import edu.princeton.cs.algs4.StdRandom;
 import edu.princeton.cs.algs4.Stopwatch;
 
-/**
- * 归并排序
- * 自顶向下的归并排序
- * 时间复杂度---O（NlgN）
- */
-public class Merge {
+public class MergeBU {
     private static Comparable[] aux;
     public static void sort(Comparable[] a){
-        aux = new Comparable[a.length];
-        sort(a,0,a.length-1);
-    }
-
-    private static void sort(Comparable[] a, int lo, int hi) {
-        // 将数组a[lo..hi]排序
-        if (hi <= lo) return;
-        int mid = lo + (hi -lo)/2;
-        // 将左半边排序
-        sort(a,lo,mid);
-        // 将右半边排序
-        sort(a,mid+1,hi);
-        // 归并结果
-        merge(a,lo,mid,hi);
+        // 进行lgN次两两归并
+        int N = a.length;
+        aux = new Comparable[N];
+        // sz子数组大小
+        for (int sz = 1; sz < N; sz=sz+sz) {
+            // lo:子数组索引
+            for (int lo = 0; lo < N-sz; lo+= sz+sz) {
+                merge(a,lo,lo+sz-1,Math.min(lo+sz+sz-1,N-1));
+            }
+        }
     }
 
     private static void merge(Comparable[] a, int lo, int mid, int hi) {
@@ -51,7 +42,7 @@ public class Merge {
             a[i] = StdRandom.uniform();
         }
         Stopwatch timer = new Stopwatch();
-        sort(a); // time: 0.132 seconds time: 0.709 seconds time: 0.292 seconds time: 0.224 seconds time: 0.559 seconds
+        sort(a); // time: 0.248 seconds time: 0.228 seconds time: 0.21 seconds time: 0.465 seconds time: 0.349 seconds
         double time = timer.elapsedTime();
         System.out.println("time: " + time + " seconds");
     }
