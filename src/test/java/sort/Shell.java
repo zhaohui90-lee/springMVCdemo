@@ -10,6 +10,8 @@ import edu.princeton.cs.algs4.Stopwatch;
  * 数组；
  * 在进行排序时，如果h很大，我们就能将元素移动到很远的地方，为实现更小的
  * h有序创造方便；用这种方式，对于任意以1结尾的h序列，我们都能讲数组排序
+ *
+ * 时间复杂度  ----最坏情况下 O（N^3/2）
  */
 public class Shell {
 
@@ -23,7 +25,7 @@ public class Shell {
         while (h > 1){
             // 将数组变为有序
             for (int i = 0; i < N; i++) {
-                // 将a[i]插入到a[i-h] a[1-2*h] ...之中
+                // 将a[i]插入到a[i-h] a[i-2*h] ...之中
                 for (int j = i; j >=h && less(a[j],a[j-h]); j-=h) {
                     exch(a,j,j-h);
                 }
