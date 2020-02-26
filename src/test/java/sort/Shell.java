@@ -47,7 +47,7 @@ public class Shell {
     public static void main(String[] args) {
         Double[] a = new Double[100000];
         for (int i = 0; i < a.length; i++) {
-            a[i] = StdRandom.uniform()*100;
+            a[i] = StdRandom.uniform();
         }
         Stopwatch timer = new Stopwatch();
         sort(a); // time: 0.176 seconds time: 0.145 seconds
