@@ -24,21 +24,13 @@ public class Insertion {
     }
 
     public static void main(String[] args) {
-        Integer[] a = new Integer[200];
+        Double[] a = new Double[100000];
         for (int i = 0; i < a.length; i++) {
-            a[i] = StdRandom.uniform(100);
+            a[i] = StdRandom.uniform()*100;
         }
-        for (int i : a) {
-            System.out.print(i + " ");
-        }
-        System.out.println();
         Stopwatch timer = new Stopwatch();
-        sort(a);
+        sort(a); // time: 27.366seconds  time: 31.339seconds
         double time = timer.elapsedTime();
         System.out.println("time: " + time + "seconds");
-        System.out.println();
-        for (int i : a) {
-            System.out.print(i + " ");
-        }
     }
 }
