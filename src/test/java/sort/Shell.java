@@ -22,9 +22,9 @@ public class Shell {
         while (h < N/3){
             h = 3*h + 1;
         }
-        while (h > 1){
+        while (h >= 1){
             // 将数组变为有序
-            for (int i = 0; i < N; i++) {
+            for (int i = h; i < N; i++) {
                 // 将a[i]插入到a[i-h] a[i-2*h] ...之中
                 for (int j = i; j >=h && less(a[j],a[j-h]); j-=h) {
                     exch(a,j,j-h);
@@ -45,12 +45,19 @@ public class Shell {
     }
 
     public static void main(String[] args) {
-        Double[] a = new Double[100000];
+        Integer[] a = new Integer[100];
         for (int i = 0; i < a.length; i++) {
-            a[i] = StdRandom.uniform();
+            a[i] = StdRandom.uniform(100);
         }
+        for (Integer d : a) {
+            System.out.print(d + ",");
+        }
+        System.out.println();
         Stopwatch timer = new Stopwatch();
         sort(a); // time: 0.176 seconds time: 0.145 seconds time: 0.184 seconds time: 0.139 seconds time: 0.238 seconds
+        for (Integer d : a) {
+            System.out.print(d + ",");
+        }
         double time = timer.elapsedTime();
         System.out.println("time: " + time + " seconds");
     }
