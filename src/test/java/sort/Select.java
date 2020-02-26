@@ -3,6 +3,10 @@ package sort;
 import edu.princeton.cs.algs4.StdRandom;
 import edu.princeton.cs.algs4.Stopwatch;
 
+/**
+ * 选择排序
+ * 时间复杂度---O(N^2)
+ */
 public class Select {
     public static void sort(Comparable[] a){
         // 将a[]按升序排列

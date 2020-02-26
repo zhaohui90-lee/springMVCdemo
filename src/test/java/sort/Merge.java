@@ -1,5 +1,8 @@
 package sort;
 
+import edu.princeton.cs.algs4.StdRandom;
+import edu.princeton.cs.algs4.Stopwatch;
+
 /**
  * 归并排序
  * 自顶向下的归并排序
@@ -16,8 +19,11 @@ public class Merge {
         // 将数组a[lo..hi]排序
         if (hi <= lo) return;
         int mid = lo + (hi -lo)/2;
+        // 将左半边排序
         sort(a,lo,mid);
+        // 将右半边排序
         sort(a,mid+1,hi);
+        // 归并结果
         merge(a,lo,mid,hi);
     }
 
@@ -37,5 +43,16 @@ public class Merge {
 
     private static boolean less(Comparable v,Comparable w){
         return v.compareTo(w) < 0;
+    }
+
+    public static void main(String[] args) {
+        Double[] a = new Double[100000];
+        for (int i = 0; i < a.length; i++) {
+            a[i] = StdRandom.uniform();
+        }
+        Stopwatch timer = new Stopwatch();
+        sort(a); // time: 0.132 seconds
+        double time = timer.elapsedTime();
+        System.out.println("time: " + time + " seconds");
     }
 }

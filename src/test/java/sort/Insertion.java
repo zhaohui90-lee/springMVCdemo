@@ -3,6 +3,10 @@ package sort;
 import edu.princeton.cs.algs4.StdRandom;
 import edu.princeton.cs.algs4.Stopwatch;
 
+/**
+ * 插入排序---对于一定量的有序数组效果好
+ * 时间复杂度---O(N^2)
+ */
 public class Insertion {
     public static void sort(Comparable[] a){
         // a[]按升序排列
