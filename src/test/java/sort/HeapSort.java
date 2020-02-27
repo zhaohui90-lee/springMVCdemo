@@ -7,40 +7,6 @@ import edu.princeton.cs.algs4.Stopwatch;
  * 堆排序
  */
 public class HeapSort {
-    public static void sort(Comparable[] a){
-        int N = a.length;
-        for (int k = N/2 -1; k >=0 ; k--) {
-            sink(a,k,N);
-        }
-        for (int i = N - 1; i > 0; i--) {
-            exch(a,0,i);
-            sink(a,0,i); // 排序为根节点为最小值
-        }
-    }
-
-    private static void sink(Comparable[] a, int i, int length) {
-        for (int k = 2*i+1; k < length; k = 2*k+1) {
-            if (k+1 < length && less(a,k,k+1)){
-                k++;
-            }
-            if (!less(a,k,i)){
-                exch(a,i,k);
-                 i = k;
-            }else {
-                break;
-            }
-        }
-    }
-
-    private static boolean less(Comparable[] a, int before, int after) {
-        return a[before].compareTo(a[after]) < 0;
-    }
-    private static void exch(Comparable[] a,int i,int j){
-        Comparable t = a[i];
-        a[i] = a[j];
-        a[j] = t;
-    }
-
     /**
      * 选择排序-堆排序
      * @param array 待排序数组
@@ -111,8 +77,8 @@ public class HeapSort {
         }
         System.out.println();
         Stopwatch timer = new Stopwatch();
-        sort(a); //
-//        heapSort(a);
+//        sort(a); //
+        heapSort(a);
         for (Double d : a) {
             System.out.print(d + ",");
         }
