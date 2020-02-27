@@ -68,20 +68,12 @@ public class HeapSort {
     }
 
     public static void main(String[] args) {
-        Double[] a = new Double[100];
+        Double[] a = new Double[100000];
         for (int i = 0; i < a.length; i++) {
-            a[i] = StdRandom.uniform()*100000;
+            a[i] = StdRandom.uniform();
         }
-        for (Double d : a) {
-            System.out.print(d + ",");
-        }
-        System.out.println();
         Stopwatch timer = new Stopwatch();
-//        sort(a); //
-        heapSort(a);
-        for (Double d : a) {
-            System.out.print(d + ",");
-        }
+        heapSort(a); // time: 0.164 seconds time: 0.168 seconds
         double time = timer.elapsedTime();
         System.out.println("time: " + time + " seconds");
     }
