@@ -32,14 +32,14 @@ public class Quick3way {
     }
 
     public static void main(String[] args) {
-        Integer[] a = new Integer[1000];
+        Integer[] a = new Integer[1000000];
         for (int i = 0; i < a.length; i++) {
-            a[i] = StdRandom.uniform(1000);
+            a[i] = StdRandom.uniform(1000000);
 //            a[i] = 100.100; // time: 0.363 seconds time: 0.366 seconds time: 0.356 seconds
         }
         Stopwatch timer = new Stopwatch();
         sort(a); // time: 0.135 seconds time: 0.148 seconds time: 0.321 seconds time: 0.128 seconds time: 0.177 seconds
-        double time = timer.elapsedTime();
+//        double time = timer.elapsedTime();
 //        for (Integer i : a) {
 //            System.out.print(i + ",");
 //        }
@@ -54,7 +54,11 @@ public class Quick3way {
                 count ++;
             }
         }
+        double time = timer.elapsedTime();
         System.out.println("total: " + count);
         System.out.println("time: " + time + " seconds");
+
+        int res = "s".compareTo("sss");
+
     }
 }
