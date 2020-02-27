@@ -52,9 +52,10 @@ public class MyQuickAndInsertSort {
     }
 
     public static void main(String[] args) {
-        Double[] a = new Double[100000];
+        Double[] a = new Double[1000000];
         for (int i = 0; i < a.length; i++) {
             a[i] = StdRandom.uniform();
+//            a[i] = 100.100; // time: 0.987 seconds time: 1.359 seconds time: 0.864 seconds time: 0.941 seconds
         }
         Stopwatch timer = new Stopwatch();
         sort(a); // time: 0.199 seconds time: 0.206 seconds time: 0.227 seconds time: 0.122 seconds time: 0.148 seconds

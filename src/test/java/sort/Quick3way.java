@@ -31,9 +31,10 @@ public class Quick3way {
     }
 
     public static void main(String[] args) {
-        Double[] a = new Double[100000];
+        Double[] a = new Double[1000000];
         for (int i = 0; i < a.length; i++) {
             a[i] = StdRandom.uniform();
+//            a[i] = 100.100; // time: 0.363 seconds time: 0.366 seconds time: 0.356 seconds
         }
         Stopwatch timer = new Stopwatch();
         sort(a); // time: 0.135 seconds time: 0.148 seconds time: 0.321 seconds time: 0.128 seconds time: 0.177 seconds
