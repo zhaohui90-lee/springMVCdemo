@@ -1,5 +1,7 @@
 package select;
 
+import edu.princeton.cs.algs4.Queue;
+
 import java.util.Objects;
 
 public class BinarySearchST<Key extends Comparable<Key>,Value> {
@@ -94,5 +96,53 @@ public class BinarySearchST<Key extends Comparable<Key>,Value> {
 
     private boolean isEmpty() {
         return this.size() == 0;
+    }
+
+    public Iterable<Key> keys(Key lo,Key hi){
+        Queue<Key> queue = new Queue<>();
+        for (int i = rank(lo); i < rank(hi); i++) {
+            queue.enqueue(keys[i]);
+        }
+        if (contains(hi)){
+            queue.enqueue(keys[rank(hi)]);
+        }
+        return queue;
+    }
+
+    private boolean contains(Key key) {
+        if (key == null){
+            throw new RuntimeException("argument to contains() is null");
+        }
+        return this.get(key) != null;
+    }
+
+    public Key min(){
+        return keys[0];
+    }
+
+    public Key max(){
+        return keys[this.N - 1];
+    }
+
+    public Key select(int k ){
+        return keys[k];
+    }
+
+    public Key ceiling(Key key){
+        int i = rank(key);
+        return keys[i];
+    }
+
+    public Key floor(Key key){
+        if (key == null){
+            throw new IllegalArgumentException("argument to floor() is null");
+        }else {
+            int i = rank(key);
+            if (i < this.N && key.compareTo(keys[i]) == 0){
+                return this.keys[i];
+            }else {
+                return i == 0? null : keys[i - 1];
+            }
+        }
     }
 }
