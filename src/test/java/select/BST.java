@@ -20,14 +20,14 @@ public class BST<Key extends Comparable<Key>,Value> {
         }
     }
     public int size(){
-        return size(root);
+        return this.size(root);
     }
-    public int size(Node x){
+    private int size(Node x){
         if (x == null) return 0;
         else return x.N;
     }
     public Value get(Key key){
-        return get(this.root,key);
+        return this.get(this.root,key);
     }
     private Value get(Node x,Key key){
         // 以x为根节点的子树中返回的key所对应的值
@@ -55,8 +55,40 @@ public class BST<Key extends Comparable<Key>,Value> {
         return x;
     }
 
+    public void delete(Key key){
+        root = this.delete(root,key);
+    }
+
+    private Node delete(Node x,Key key) {
+        if (x == null) return null;
+        int cmp = key.compareTo(x.key);
+        if (cmp < 0) return x.left = delete(x.left,key);
+        else if (cmp > 0) return x.right = delete(x.right,key);
+        else {
+            if (x.right == null) return x.left;
+            if (x.left == null) return x.right;
+            Node t = x;
+            x = min(t.right);
+            x.right = deleteMin(t.right);
+            x.left = t.left;
+        }
+        x.N = size(x.left) + size(x.right) + 1;
+        return x;
+    }
+
+    public void deleteMin(){
+        root = this.deleteMin(root);
+    }
+
+    private Node deleteMin(Node x) {
+        if (x.left == null) return x.right;
+        x.left = deleteMin(x.left);
+        x.N = size(x.left) + size(x.right) + 1;
+        return x;
+    }
+
     public Key min(){
-        return min(root).key;
+        return this.min(root).key;
     }
 
     private Node min(Node x){
@@ -65,7 +97,7 @@ public class BST<Key extends Comparable<Key>,Value> {
     }
 
     public Key max(){
-        return max(root).key;
+        return this.max(root).key;
     }
     private Node max(Node x){
         if (x.right == null) return x;
@@ -121,7 +153,7 @@ public class BST<Key extends Comparable<Key>,Value> {
     }
 
     public int rank(Key key){
-        return rank(key,root);
+        return this.rank(key,root);
     }
 
     private int rank(Key key, Node x) {
