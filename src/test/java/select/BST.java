@@ -100,6 +100,17 @@ public class BST<Key extends Comparable<Key>,Value> {
         return x;
     }
 
+    public void deleteMax(){
+        root = this.deleteMax(root);
+    }
+
+    private Node deleteMax(Node x){
+        if (x.right == null) return x.left;
+        x.right = deleteMax(x.right);
+        x.N = size(x.left) + size(x.right) + 1;
+        return x;
+    }
+
     public Key min(){
         return this.min(root).key;
     }
