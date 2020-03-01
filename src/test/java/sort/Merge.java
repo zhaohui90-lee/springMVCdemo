@@ -46,7 +46,7 @@ public class Merge {
     }
 
     public static void main(String[] args) {
-        Double[] a = new Double[100000];
+        Double[] a = new Double[5];
         for (int i = 0; i < a.length; i++) {
             a[i] = StdRandom.uniform();
         }

@@ -55,6 +55,19 @@ public class BST<Key extends Comparable<Key>,Value> {
         return x;
     }
 
+    public static void main(String[] args) {
+        BST<String,String> bst = new BST<>();
+        bst.put("X","XXX");
+        bst.put("S","SSSSS");
+        bst.put("A","XXX");
+        bst.put("Z","XXX");
+
+        System.out.println(bst.size());
+            bst.delete("S");
+        System.out.println(bst.get("A"));
+        System.out.println(bst.size());
+    }
+
     public void delete(Key key){
         root = this.delete(root,key);
     }
@@ -62,8 +75,8 @@ public class BST<Key extends Comparable<Key>,Value> {
     private Node delete(Node x,Key key) {
         if (x == null) return null;
         int cmp = key.compareTo(x.key);
-        if (cmp < 0) return x.left = delete(x.left,key);
-        else if (cmp > 0) return x.right = delete(x.right,key);
+        if (cmp < 0) x.left = delete(x.left,key);
+        else if (cmp > 0) x.right = delete(x.right,key);
         else {
             if (x.right == null) return x.left;
             if (x.left == null) return x.right;
