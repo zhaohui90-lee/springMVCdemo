@@ -45,19 +45,19 @@ public class Shell {
     }
 
     public static void main(String[] args) {
-        Integer[] a = new Integer[100];
+        Integer[] a = new Integer[100000];
         for (int i = 0; i < a.length; i++) {
             a[i] = StdRandom.uniform(100);
         }
-        for (Integer d : a) {
-            System.out.print(d + ",");
-        }
-        System.out.println();
+//        for (Integer d : a) {
+//            System.out.print(d + ",");
+//        }
+//        System.out.println();
         Stopwatch timer = new Stopwatch();
         sort(a); // time: 0.176 seconds time: 0.145 seconds time: 0.184 seconds time: 0.139 seconds time: 0.238 seconds
-        for (Integer d : a) {
-            System.out.print(d + ",");
-        }
+//        for (Integer d : a) {
+//            System.out.print(d + ",");
+//        }
         double time = timer.elapsedTime();
         System.out.println("time: " + time + " seconds");
     }
