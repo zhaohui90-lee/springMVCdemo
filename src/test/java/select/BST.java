@@ -1,5 +1,9 @@
 package select;
 
+import edu.princeton.cs.algs4.Queue;
+
+import java.util.Iterator;
+
 /**
  * 二叉查找树 实现了查找和插入的时间复杂度为O(lgN)
  * @param <Key>
@@ -57,15 +61,24 @@ public class BST<Key extends Comparable<Key>,Value> {
 
     public static void main(String[] args) {
         BST<String,String> bst = new BST<>();
+        bst.put("S","XXX");
+        bst.put("E","SSSSS");
         bst.put("X","XXX");
-        bst.put("S","SSSSS");
         bst.put("A","XXX");
-        bst.put("Z","XXX");
+        bst.put("R","XXX");
+        bst.put("C","XXX");
+        bst.put("H","XXX");
+        bst.put("M","XXX");
+        bst.put("L","XXX");
+        bst.put("P","XXX");
 
-        System.out.println(bst.size());
-            bst.delete("S");
-        System.out.println(bst.get("A"));
-        System.out.println(bst.size());
+//        System.out.println(bst.rank("S"));
+//        System.out.println(bst.select(2));
+
+        Iterable<String> iter = bst.keys();
+        for (String s : iter) {
+            System.out.println(s+":"+bst.get(s));
+        }
     }
 
     public void delete(Key key){
@@ -186,5 +199,24 @@ public class BST<Key extends Comparable<Key>,Value> {
         if (cmp < 0) return rank(key,x.left);
         else if (cmp > 0) return 1 + size(x.left) + size(x.right);
         else return size(x.left);
+    }
+
+    public Iterable<Key> keys(){
+        return keys(min(),max());
+    }
+
+    private Iterable<Key> keys(Key lo, Key hi) {
+        Queue<Key> queue = new Queue<>();
+        keys(root,queue,lo,hi);
+        return queue;
+    }
+
+    private void keys(Node x, Queue<Key> queue, Key lo, Key hi) {
+        if (x == null) return;
+        int cmplo = lo.compareTo(x.key);
+        int cmphi = hi.compareTo(x.key);
+        if (cmplo < 0) keys(x.left,queue,lo,hi);
+        if (cmplo <= 0 && cmphi >= 0) queue.enqueue(x.key);
+        if (cmphi > 0) keys(x.right,queue,lo,hi);
     }
 }
