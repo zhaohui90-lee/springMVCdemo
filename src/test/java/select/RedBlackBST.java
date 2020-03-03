@@ -1,6 +1,5 @@
 package select;
 
-import javax.validation.constraints.NotNull;
 import java.util.NoSuchElementException;
 
 public class RedBlackBST<Key extends Comparable<Key>,Value> {
@@ -207,7 +206,7 @@ public class RedBlackBST<Key extends Comparable<Key>,Value> {
     Node rotateRight(Node h){
         Node x = h.left;
         x.left = h.right;
-        x.left = h;
+        x.right = h;
         x.color = h.color;
         h.color = RED;
         x.N = h.N;
