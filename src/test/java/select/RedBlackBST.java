@@ -1,5 +1,8 @@
 package select;
 
+import edu.princeton.cs.algs4.StdOut;
+import edu.princeton.cs.algs4.StdRandom;
+
 import javax.validation.constraints.NotNull;
 import java.util.NoSuchElementException;
 
@@ -271,5 +274,8 @@ public class RedBlackBST<Key extends Comparable<Key>,Value> {
     }
 
     public static void main(String[] args) {
+//        StdOut.print(0x7fffffff);
+        System.out.println("s".hashCode());
+        System.out.println("s ".hashCode());
     }
 }
