@@ -14,6 +14,7 @@ import java.util.Iterator;
  */
 public class SequentialSearchST<Key,Value>{
     private Node first;
+    private int N;
     private class Node{
         Key key;
         Value val;
@@ -45,9 +46,32 @@ public class SequentialSearchST<Key,Value>{
         first = new Node(key,val,first); // 未命中，新建节点
     }
 
+    public void delete(Key key){
+        if (key == null){
+            throw new IllegalArgumentException("argument to delete() is null");
+        }else {
+            this.first = this.delete(this.first,key);
+        }
+    }
+
+    private Node delete(Node x, Key key) {
+        if (x == null){
+            return null;
+        }else if (key.equals(x.key)){
+            --this.N;
+            return x.next;
+        }else {
+            x.next = this.delete(x.next,key);
+            return x;
+        }
+    }
+
     public boolean contains(Key key){
         if (key == null) throw new IllegalArgumentException("argument to contains() is null");
         return get(key) != null;
+    }
+    public int size(){
+        return this.N;
     }
 
     public Iterable<Key> keys() {
