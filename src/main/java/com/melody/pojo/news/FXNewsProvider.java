@@ -7,19 +7,29 @@ import org.springframework.stereotype.Component;
 /**
  * 传统非IOC方式---FXNewsProvider和DowJonesNewsListener DowJonesNewsPersistener 紧密耦合在一起
  */
-@Component("newsProvider")
 public class FXNewsProvider {
 
     private IFXNewsListener newsListener;
 
     private IFXNewsPersistener newsPersistener;
 
+    private String title;
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
 //    public FXNewsProvider(){
 //        newsListener = new DowJonesNewsListener();
 //        newsPersistener = new DowJonesNewsPersistener();
 //    }
 
-
+    /**
+     * 使用setter注入必须要提供一个默认的构造器
+     */
     public FXNewsProvider() {
     }
 
@@ -28,10 +38,16 @@ public class FXNewsProvider {
      * @param newsListener
      * @param newsPersistener
      */
-    @Autowired
+
     public FXNewsProvider(IFXNewsListener newsListener,IFXNewsPersistener newsPersistener){
         this.newsListener = newsListener;
         this.newsPersistener = newsPersistener;
+    }
+
+    public FXNewsProvider(IFXNewsListener newsListener, IFXNewsPersistener newsPersistener, String title) {
+        this.newsListener = newsListener;
+        this.newsPersistener = newsPersistener;
+        this.title = title;
     }
 
     public void getAndPersistNews(){
