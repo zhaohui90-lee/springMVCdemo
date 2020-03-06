@@ -8,9 +8,9 @@ import java.util.Date;
  * 实现FactoryBean接口的DateTime类的工厂类
  * @author 40431
  */
-public class NextDayDateFactoryBean implements FactoryBean<Date> {
+public class NextDayDateFactoryBean implements FactoryBean<DateTime> {
     @Override
-    public Date getObject() throws Exception {
+    public DateTime getObject() throws Exception {
         return new DateTime().plusDay(1);
     }
 
