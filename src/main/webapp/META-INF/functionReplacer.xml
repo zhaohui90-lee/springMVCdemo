@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="djNewsProvider" class="com.melody.pojo.news.FXNewsProvider">
+        <constructor-arg index="0" ref="djNewsListener"/>
+        <constructor-arg index="1" ref="djNewsPersistener"/>
+        <replaced-method name="getAndPersistNews" replacer="providerReplacer"/>
+    </bean>
+    <bean id="djNewsListener" class="com.melody.pojo.news.DowJonesNewsListener"/>
+    <bean id="djNewsPersistener" class="com.melody.pojo.news.DowJonesNewsPersistener"/>
+
+    <bean id="providerReplacer" class="com.melody.pojo.factorybean.FXNewsProviderMethodReplacer"/>
+</beans>
