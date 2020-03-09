@@ -11,9 +11,10 @@ public class MockNewsPersisterTest {
 
     @Test
     public void persistNewes() {
-        ApplicationContext container = new ClassPathXmlApplicationContext("factorybean.xml");
+        ApplicationContext container = new ClassPathXmlApplicationContext("META-INF/factorybean.xml");
         MockNewsPersister persister = (MockNewsPersister) container.getBean("mockPersister");
-        persister.persistNewes();
-        persister.persistNewes();
+        persister.persistentNews();
+//        MockNewsPersister persister1 = (MockNewsPersister) container.getBean("mockPersister");
+        persister.persistentNews();
     }
 }

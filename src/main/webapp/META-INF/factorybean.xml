@@ -3,17 +3,20 @@
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-<!--    <bean id="nextDayDateDisplayer" class="com.melody.pojo.factorybean.NextDayDateDisplayer">-->
-<!--        <property name="dateOfNextDay" ref="nextDayDate"/>-->
-<!--    </bean>-->
-<!--    <bean id="nextDayDate" class="com.melody.pojo.factorybean.NextDayDateFactoryBean"/>-->
-
-<!--    <bean id="newsBean" class="com.melody.pojo.news.FXNewsBean" scope="prototype"/>-->
-
-<!--    <bean id="mockPersister" class="com.melody.pojo.factorybean.MockNewsPersister"/>-->
-    <bean id="nextDayDateDisplayer" class="com.melody.pojo.myfactory.NextDayDateDisplayer">
+    <bean id="nextDayDateDisplayer" class="com.melody.pojo.factorybean.NextDayDateDisplayer">
         <property name="dateOfNextDay" ref="nextDayDate"/>
     </bean>
+    <bean id="nextDayDate" class="com.melody.pojo.factorybean.NextDayDateFactoryBean"/>
 
-    <bean id="nextDayDate" class="com.melody.pojo.myfactory.NextDayDateFactoryBean"/>
+    <bean id="newsBean" class="com.melody.pojo.news.FXNewsBean" scope="prototype"/>
+
+    <bean id="mockPersister" class="com.melody.pojo.factorybean.MockNewsPersister">
+<!--        <property name="newsBean" ref="newsBean"/>-->
+        <lookup-method name="getNewsBean" bean="newsBean"/>
+    </bean>
+<!--    <bean id="nextDayDateDisplayer" class="com.melody.pojo.myfactory.NextDayDateDisplayer">-->
+<!--        <property name="dateOfNextDay" ref="nextDayDate"/>-->
+<!--    </bean>-->
+
+<!--    <bean id="nextDayDate" class="com.melody.pojo.myfactory.NextDayDateFactoryBean"/>-->
 </beans>
