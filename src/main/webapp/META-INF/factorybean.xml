@@ -10,10 +10,25 @@
 
     <bean id="newsBean" class="com.melody.pojo.news.FXNewsBean" scope="prototype"/>
 
+<!--  使用beanfactoryaware  -->
+    <bean id="mockPersister1" class="com.melody.pojo.factorybean.MockNewsPersister1"/>
+<!-- 使用方法注入 -->
     <bean id="mockPersister" class="com.melody.pojo.factorybean.MockNewsPersister">
-<!--        <property name="newsBean" ref="newsBean"/>-->
         <lookup-method name="getNewsBean" bean="newsBean"/>
     </bean>
+<!-- 使用ObjectFactoryCreatingFactoryBean -->
+    <bean id="mockPersister2" class="com.melody.pojo.factorybean.MockNewsPersister2">
+        <property name="newsBeanFactory" ref="newsBeanFactory"/>
+    </bean>
+
+    <bean id="newsBeanFactory" class="org.springframework.beans.factory.config.ObjectFactoryCreatingFactoryBean">
+        <property name="targetBeanName">
+            <idref bean="newsBean"/>
+        </property>
+    </bean>
+
+
+
 <!--    <bean id="nextDayDateDisplayer" class="com.melody.pojo.myfactory.NextDayDateDisplayer">-->
 <!--        <property name="dateOfNextDay" ref="nextDayDate"/>-->
 <!--    </bean>-->

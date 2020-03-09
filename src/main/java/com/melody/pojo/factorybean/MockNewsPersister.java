@@ -8,6 +8,9 @@ import org.springframework.beans.factory.BeanFactoryAware;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
+/**
+ * @author 40431
+ */
 public class MockNewsPersister implements IFXNewsPersistener {
     private FXNewsBean newsBean;
 
