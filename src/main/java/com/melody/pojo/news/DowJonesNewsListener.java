@@ -2,7 +2,7 @@ package com.melody.pojo.news;
 
 import org.springframework.stereotype.Component;
 
-@Component
+
 public class DowJonesNewsListener implements IFXNewsListener {
     @Override
     public String[] getAvailableNewsIds() {

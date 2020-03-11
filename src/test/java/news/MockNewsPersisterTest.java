@@ -11,10 +11,10 @@ public class MockNewsPersisterTest {
 
     @Test
     public void persistNewes() {
-        ApplicationContext container1 = new ClassPathXmlApplicationContext("news.xml");
+        ApplicationContext container1 = new ClassPathXmlApplicationContext("root_news.xml");
         MockNewsPersister persister1 = (MockNewsPersister) container1.getBean("mockNewsPersister");
 
-        ApplicationContext container2 = new ClassPathXmlApplicationContext("news.xml");
+        ApplicationContext container2 = new ClassPathXmlApplicationContext("root_news.xml");
         MockNewsPersister persister2 = (MockNewsPersister) container2.getBean("mockNewsPersister");
 
         persister1.persistNewes();
@@ -23,7 +23,7 @@ public class MockNewsPersisterTest {
 
     @Test
     public void persistNews1(){
-        ApplicationContext container1 = new ClassPathXmlApplicationContext("news.xml");
+        ApplicationContext container1 = new ClassPathXmlApplicationContext("root_news.xml");
         MockNewsPersister persister1 = (MockNewsPersister) container1.getBean("mockNewsPersister");
         persister1.persistNewes();
         persister1.persistNewes();

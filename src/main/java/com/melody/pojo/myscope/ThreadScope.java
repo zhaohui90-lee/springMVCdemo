@@ -9,6 +9,7 @@ import java.util.Map;
 public class ThreadScope implements Scope {
 
     private final ThreadLocal threadScope = new ThreadLocal(){
+        @Override
         protected Object initialValue(){
             return new HashMap();
         }

@@ -5,39 +5,20 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
                             http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
 
-    <context:component-scan base-package="com.melody.pojo.news"/>
-    <context:annotation-config/>
+    <bean id="newsProvider" class="com.melody.pojo.news.FXNewsProvider">
+        <property name="newsListener" ref="djNewsListener"/>
+        <property name="newsPersistener" ref="djNewsPersistener"/>
+    </bean>
+    <bean id="djNewsListener" class="com.melody.pojo.news.DowJonesNewsListener"/>
+    <bean id="djNewsPersistener" class="com.melody.pojo.news.DowJonesNewsPersistener"/>
 
-<!--    <bean id="djNewsProvider" class="com.melody.pojo.news.FXNewsProvider" name="/news/djNewsProvider"/>-->
-
-<!--    <alias name="dowJonesNewsListener" alias="jonesNewsListener"/>-->
-
-<!--    <bean id="newsProvider" class="com.melody.pojo.news.FXNewsProvider">-->
-<!--        <property name="newsListener" ref="djNewsListener"/>-->
-<!--        <property name="newsPersistener" ref="djNewsPersistener"/>-->
+<!--    <bean id="newsProvider" class="com.melody.pojo.news.FXNewsProvider" scope="">-->
+<!--        <constructor-arg index="0" name="newsListener" ref="newsListener"/>-->
+<!--        <constructor-arg index="1" name="newsPersistener" ref="newsPersistener"/>-->
+<!--        <constructor-arg index="2" name="title" ref="title"/>-->
 <!--    </bean>-->
-<!--    <bean id="djNewsListener" class="com.melody.pojo.news.DowJonesNewsListener"/>-->
-<!--    <bean id="djNewsPersistener" class="com.melody.pojo.news.DowJonesNewsPersistener"/>-->
 
-<!--    <bean class="org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor"/>-->
-
-<!--    <bean id="newProvider" class="com.melody.pojo.news.FXNewsProvider"/>-->
-<!--    <bean id="djNewsListener" class="com.melody.pojo.news.DowJonesNewsListener"/>-->
-<!--    <bean id="djNewsPersistener" class="com.melody.pojo.news.DowJonesNewsPersistener"/>-->
-<!--        <constructor-arg index="0" ref="jdNewsListener"/>-->
-<!--        <constructor-arg index="1" ref="jdNewsPersistener"/>-->
-<!--        <replaced-method name="getAndPersistNews" replacer="providerReplacer"/>-->
-<!--        <property name="newsListener" ref="dowJonesNewsListener"/>-->
-<!--        <property name="newsPersistener" ref="dowJonesNewsPersistener"/>-->
-
-<!--    <bean id="jdNewsListener" class="com.melody.pojo.news.DowJonesNewsListener"/>-->
-<!--    <bean id="jdNewsPersistener" class="com.melody.pojo.news.DowJonesNewsPersistener"/>-->
-<!--    <bean id="providerReplacer" class="com.melody.pojo.factorybean.FXNewsProviderMethodReplacer"/>-->
-
-    <!--    <bean id="subNewsProvider" class="com.melody.pojo.news.SpecificFXNewsProvider" parent="newProvider"/>-->
-<!--    <bean id="mockNewsPersister" class="com.melody.pojo.news.MockNewsPersister">-->
-<!--        <property name="fxNewsBean" ref="newsBean"/>-->
-<!--        <lookup-method name="getNewsBean" bean="newsBean"/>-->
-<!--    </bean>-->
-<!--    <bean id="newsBean" class="com.melody.pojo.news.FXNewsBean" scope="prototype"/>-->
+<!--    <bean id="newsListener" class="com.melody.pojo.news.DowJonesNewsListener"/>-->
+<!--    <bean id="newsPersistener" class="com.melody.pojo.news.DowJonesNewsPersistener"/>-->
+<!--    <bean id="title" class="java.lang.String" autowire="byType" lazy-init="true"/>-->
 </beans>

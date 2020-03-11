@@ -3,23 +3,25 @@
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-    <bean id="foo" class="com.melody.pojo.myfactory.Foo">
-        <property name="barInterface" ref="bar"/>
-    </bean>
-    <bean id="bar" class="com.melody.pojo.myfactory.StaticBarInterfaceFactory" factory-method="getInstance">
-        <constructor-arg ref="id"/>
-    </bean>
+<!--    <bean id="foo" class="com.melody.pojo.myfactory.Foo">-->
+<!--        <property name="barInterface" ref="bar"/>-->
+<!--    </bean>-->
+<!--    <bean id="bar" class="com.melody.pojo.myfactory.StaticBarInterfaceFactory" factory-method="getInstance">-->
+<!--        <constructor-arg ref="id"/>-->
+<!--    </bean>-->
     <bean id="id" class="java.lang.String"/>
 
     <bean id="foo1" class="com.melody.pojo.myfactory.Foo">
         <property name="barInterface" ref="bar1"/>
     </bean>
 
+    <bean id="barFactory" class="com.melody.pojo.myfactory.NonStaticInterfaceFactory"/>
+
     <bean id="bar1" factory-bean="barFactory" factory-method="getInstance">
         <constructor-arg ref="id"/>
     </bean>
 
-    <bean id="barFactory" class="com.melody.pojo.myfactory.NonStaticInterfaceFactory"/>
+
 
 
 </beans>
