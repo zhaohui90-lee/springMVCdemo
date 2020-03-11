@@ -5,6 +5,7 @@ import edu.princeton.cs.algs4.StdIn;
 import edu.princeton.cs.algs4.StdOut;
 import edu.princeton.cs.algs4.StdRandom;
 
+import javax.xml.transform.Source;
 import java.util.Arrays;
 
 public class Algorithms {
@@ -58,73 +59,74 @@ public class Algorithms {
         }
     }
 
+    // 以2位底的对数函数
+    public static int lg(int N){
+        int num = 2,count = 1;
+        while ((num*=2) <= N){
+            count++;
+        }
+        return count;
+    }
+
+    // 以底数位E的对数从1到N相加
+    public static double ln(int N){
+        if (N == 0) return Math.log(1);
+        return Math.log(N) + ln(--N);
+    }
+
+    // 欧几里得算法求最大公约数---除数和余数做循环除法，最终得到余数为0是的除数
+    public static int gcd(int a,int b){
+        if (a < b){
+            int temp;
+            temp = b;
+            b = a;
+            a = temp;
+        }
+        if (a % b == 0) return b;
+        return gcd(b,a%b);
+    }
+
+    // 以2位底的指数函数
+    public static int xxx(int N){
+        int count = 1,result = 1;
+        while (count <= N){
+            result *= 2;
+            count++;
+        }
+        return result;
+    }
+
+    static int num;
+
     public static void main(String[] args) {
-//        System.out.println(isPrime(100));
-//        System.out.println(sqrt(99));
-//        System.out.println(Math.sqrt(-97));
 
-//        int[] a = {15,5,165,165,651,10,15};
-//        Arrays.sort(a);
-//        System.out.println(rank(10,a));
+//        System.out.println(ln(3));
+//        System.out.println(gcd(1111111,1234567));
+//        System.out.println(binomial(3,1,0.25));
+        System.out.println(num);
+    }
 
-//        System.out.println(System.currentTimeMillis());
+    public static String exR1(int N){
+        if (N <= 0) return "";
 
-//        System.out.println(StdRandom.uniform(100L));
+        return exR1(N -3) + N + exR1(N - 2) + N;
+    }
 
-//        100 ---
-//        System.out.println(100 & 20);
+    public static int mystery(int a,int b){
+        if (b == 0) return 1;
+        if (b % 2 == 0) return mystery(a*a,b/2);
+        return mystery(a*a,b/2) * a;
+    }
 
-//        StdOut.print(100 & 20);
+    public static long F(int N){
+        if (N == 0) return 0;
+        if (N == 1) return 1;
+        return F(N - 1) + F(N -2);
+    }
 
-//        System.out.format("%.2f\n",1235.021);
-//        System.out.format("%.2f\n",Math.PI);
-
-//        double sum = 0.0D;
-//        int cnt = 0;
-//        while (!StdIn.isEmpty()){
-//            sum += StdIn.readDouble();
-//            cnt ++;
-//        }
-//        double avg = sum / cnt;
-//        StdOut.printf("Average is %.5f\n",avg);
-
-//        int N = Integer.parseInt(args[0]);
-//        double lo = Double.parseDouble(args[1]);
-//        double hi = Double.parseDouble(args[2]);
-//        for (int i = 0; i < N; i++) {
-//            double x = StdRandom.uniform(lo,hi);
-//            StdOut.printf("%.2f\n",x);
-//        }
-
-//        StdDraw.line(10.1,12.0,155.0,205.5);
-
-//        int N = 100;
-//        StdDraw.setXscale(0,N);
-//        StdDraw.setYscale(0,N*N);
-//        StdDraw.setPenRadius(0.01);
-//        for (int i = 1; i <= N; i++) {
-//            StdDraw.point(i,i);
-//            StdDraw.point(i,i*i);
-//            StdDraw.point(i,i*Math.log(i));
-//        }
-
-//        int N = 50;
-//        double[] a = new double[N];
-//        for (int i = 0; i < N; i++) {
-//            a[i] = StdRandom.uniform();
-//        }
-//        Arrays.sort(a);
-//        for (int i = 0; i < N; i++) {
-//            double x = 1.0*i/N;
-//            double y = a[i]/2.0;
-//            double rw = 0.5/N;
-//            double rh = a[i]/2.0;
-//            StdDraw.filledRectangle(x,y,rw,rh);
-//        }
-
-        System.out.println(Math.abs(-2147483648)); // -2147483648
-//        System.out.println(1/0);
-//        System.out.println(1.0/0.0);
-        System.out.println("asdad\\s+sss");
+    public static double binomial(int N,int k,double p){
+        if (N == 0 && k == 0) return 1.0;
+        if (N < 0 || k < 0) return 0.0;
+        return (1.0 - p)*binomial(N - 1,k,p) + p*binomial(N - 1,k-1,p);
     }
 }

@@ -14,6 +14,11 @@ import java.util.Iterator;
  */
 public class SequentialSearchST<Key,Value>{
     private Node first;
+
+    public void delete(Key key) {
+
+    }
+
     private class Node{
         Key key;
         Value val;
