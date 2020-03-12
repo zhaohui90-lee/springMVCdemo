@@ -2,15 +2,21 @@ package com.melody.pojo.news;
 
 import org.apache.commons.lang.ArrayUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
 /**
  * 传统非IOC方式---FXNewsProvider和DowJonesNewsListener DowJonesNewsPersistener 紧密耦合在一起
  */
+@Component("newsProvider")
 public class FXNewsProvider {
 
+    @Autowired
     private IFXNewsListener newsListener;
 
+    @Autowired
     private IFXNewsPersistener newsPersistener;
 
     private String title;
@@ -43,6 +49,7 @@ public class FXNewsProvider {
         this.newsListener = newsListener;
         this.newsPersistener = newsPersistener;
     }
+
 
     public FXNewsProvider(IFXNewsListener newsListener, IFXNewsPersistener newsPersistener, String title) {
         this.newsListener = newsListener;

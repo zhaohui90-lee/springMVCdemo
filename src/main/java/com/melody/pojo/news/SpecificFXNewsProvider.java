@@ -4,8 +4,8 @@ public class SpecificFXNewsProvider extends FXNewsProvider{
     private IFXNewsListener newsListener;
     private IFXNewsPersistener newsPersistener;
 
-    public SpecificFXNewsProvider() {
-    }
+//    public SpecificFXNewsProvider() {
+//    }
 
     public SpecificFXNewsProvider(IFXNewsListener newsListener, IFXNewsPersistener newsPersistener) {
         super(newsListener, newsPersistener);
