@@ -42,11 +42,11 @@ function chooseJsWayStep(){
     $(".n1 span").html("("+zf+"元)");
 }
 
-function payInit(paytype) {
+function payInit(paytype,zf,trade_type) {
     const payment = createPaymentType(paytype);
-    payment.action;
-    payment.pay;
-    payment.afterAction;
+    payment.action(zf);
+    payment.pay(zf);
+    payment.afterAction(zf);
 }
 
 function createPaymentType(paytype) {
@@ -66,17 +66,17 @@ class BasicPayment {
     constructor(paytype) {
         this.paytype = paytype;
     }
-    get action(){
+    set action(zf){
         $("#chargeList").hide();
         $("#Scanpay").show();
         $("#keyboard_input").val(zf);
     }
 
-    get pay(){
+    set pay(zf){
         throw new Error("this is basicPatment...");
     }
 
-    get afterAction(){
+    set afterAction(zf){
         $(".now").addClass("after");
         $(".now").next(".before").eq(0).removeClass("before").addClass("now");
         $(".now").eq(0).removeClass("now");
@@ -85,37 +85,37 @@ class BasicPayment {
 }
 
 class BankcardPayment extends BasicPayment{
-    get pay(){
+    set pay(zf){
         initBankPay("bank",zf);
     }
 }
 
 class AlipayPayment extends BasicPayment{
-    get pay(){
+    set pay(zf){
         scancode("alipayBar",zf,trade_type);
     }
 }
 
 class WechatPayment extends BasicPayment{
-    get pay(){
+    set pay(zf){
         scancode("wechatBar",zf,trade_type);
     }
 }
 
 class CreditPayment extends BasicPayment{
-    get pay(){
+    set pay(zf){
         payByCredit("CreditPay",zf,trade_type);
     }
 }
 
 class AlipayZolozPayment extends BasicPayment{
-    get pay(){
+    set pay(zf){
         payByFace("alipayZoloz",zf,trade_type);
     }
 }
 
 class PayByDzjkkPayment extends BasicPayment{
-    get pay(){
+    set pay(zf){
         dzjkkPayInit("dzjkk",zf,yb,total,trade_type);
     }
 }
