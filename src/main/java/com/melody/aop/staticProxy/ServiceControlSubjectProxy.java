@@ -9,6 +9,9 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 
+/**
+ * @author 40431
+ */
 public class ServiceControlSubjectProxy implements ISubject {
     private final Log logger = LogFactory.getLog(ServiceControlSubjectProxy.class);
     private ISubject subject;

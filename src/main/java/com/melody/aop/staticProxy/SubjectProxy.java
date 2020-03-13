@@ -1,5 +1,8 @@
 package com.melody.aop.staticProxy;
 
+/**
+ * @author 40431
+ */
 public class SubjectProxy implements ISubject {
     private ISubject subject;
     @Override
