@@ -11,8 +11,8 @@ public class FXNewsProviderMethodReplacerTest {
 
     @Test
     public void reimplement() {
-        ApplicationContext container = new ClassPathXmlApplicationContext("root_news.xml");
-        FXNewsProvider fxNewsProvider = (FXNewsProvider) container.getBean("newProvider");
+        ApplicationContext container = new ClassPathXmlApplicationContext("META-INF/functionReplacer.xml");
+        FXNewsProvider fxNewsProvider = (FXNewsProvider) container.getBean("djNewsProvider");
         fxNewsProvider.getAndPersistNews();
     }
 }

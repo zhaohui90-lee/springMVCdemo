@@ -5,17 +5,20 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
                             http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
 
-    <bean id="newsProvider" class="com.melody.pojo.news.FXNewsProvider">
-        <property name="newsListener" ref="djNewsListener"/>
-        <property name="newsPersistener" ref="djNewsPersistener"/>
-    </bean>
-    <bean id="djNewsListener" class="com.melody.pojo.news.DowJonesNewsListener"/>
-    <bean id="djNewsPersistener" class="com.melody.pojo.news.DowJonesNewsPersistener"/>
+    <context:component-scan base-package="com.melody.pojo.news"/>
+
+    <bean class="org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor"/>
+
+<!--    <bean id="newsProvider" class="com.melody.pojo.news.FXNewsProvider"/>-->
+<!--        <property name="newsListener" ref="djNewsListener"/>-->
+<!--        <property name="newsPersistener" ref="djNewsPersistener"/>-->
+
+<!--    <bean id="djNewsListener" class="com.melody.pojo.news.DowJonesNewsListener"/>-->
+<!--    <bean id="djNewsPersistener" class="com.melody.pojo.news.DowJonesNewsPersistener"/>-->
 
 <!--    <bean id="newsProvider" class="com.melody.pojo.news.FXNewsProvider" scope="">-->
 <!--        <constructor-arg index="0" name="newsListener" ref="newsListener"/>-->
 <!--        <constructor-arg index="1" name="newsPersistener" ref="newsPersistener"/>-->
-<!--        <constructor-arg index="2" name="title" ref="title"/>-->
 <!--    </bean>-->
 
 <!--    <bean id="newsListener" class="com.melody.pojo.news.DowJonesNewsListener"/>-->

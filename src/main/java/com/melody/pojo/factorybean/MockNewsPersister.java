@@ -8,23 +8,26 @@ import org.springframework.beans.factory.BeanFactoryAware;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
-public class MockNewsPersister implements IFXNewsPersistener, BeanFactoryAware {
-    private BeanFactory beanFactory;
+/**
+ * @author 40431
+ */
+public class MockNewsPersister implements IFXNewsPersistener {
+    private FXNewsBean newsBean;
+
     @Override
     public void persistentNews(FXNewsBean fxNewsBean) {
-        persistNewes();
+        persistentNews();
     }
 
-    @Override
-    public void setBeanFactory(BeanFactory beanFactory) throws BeansException {
-        this.beanFactory = beanFactory;
+    public void persistentNews(){
+        System.out.println("persist bean:" + getNewsBean());
     }
 
-    public void persistNewes() {
-        System.out.println("persist bean: " + getNewsBean());
+    protected FXNewsBean getNewsBean() {
+        return newsBean;
     }
 
-    public FXNewsBean getNewsBean() {
-        return (FXNewsBean) beanFactory.getBean("newsBean");
+    public void setNewsBean(FXNewsBean newsBean) {
+        this.newsBean = newsBean;
     }
 }

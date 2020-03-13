@@ -3,17 +3,24 @@ package news;
 import com.melody.pojo.news.DowJonesNewsListener;
 import com.melody.pojo.news.DowJonesNewsPersistener;
 import com.melody.pojo.news.FXNewsProvider;
+import com.melody.pojo.postprocessor.PasswordDecodePostProcessor;
 import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.springframework.beans.BeanWrapper;
+import org.springframework.beans.BeanWrapperImpl;
 import org.springframework.beans.MutablePropertyValues;
 import org.springframework.beans.PropertyValue;
 import org.springframework.beans.factory.BeanFactory;
+import org.springframework.beans.factory.config.ConfigurableBeanFactory;
 import org.springframework.beans.factory.config.ConstructorArgumentValues;
 import org.springframework.beans.factory.support.*;
 import org.springframework.beans.factory.xml.XmlBeanDefinitionReader;
 import org.springframework.beans.factory.xml.XmlBeanFactory;
 import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.AbstractApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.core.io.ClassPathResource;
+import org.springframework.test.context.ContextConfiguration;
 
 import static org.junit.Assert.*;
 
@@ -21,20 +28,26 @@ public class IOCTestTest {
 
     @Test
     public void main() {
-//        BeanFactory container = new XmlBeanFactory(new ClassPathResource("root_news.xml"));
-        BeanFactory container = new ClassPathXmlApplicationContext("META-INF/news.xml");
+//        ConfigurableBeanFactory container = new XmlBeanFactory(new ClassPathResource("META-INF/news.xml"));
+//        container.addBeanPostProcessor(new PasswordDecodePostProcessor());
+        ApplicationContext container = new ClassPathXmlApplicationContext("META-INF/news.xml");
         FXNewsProvider newsProvider = (FXNewsProvider) container.getBean("newsProvider");
         newsProvider.getAndPersistNews();
+        System.out.println(newsProvider);
+        // 销毁对象
+//        container.destroySingletons();
     }
 
     @Test
     public void test(){
-        ApplicationContext context = new ClassPathXmlApplicationContext("META-INF/news.xml");
+        AbstractApplicationContext context = new ClassPathXmlApplicationContext("META-INF/news.xml");
 //        FXNewsProvider newsProvider = (FXNewsProvider) context.getBean("newsProvider");
 //        newsProvider.getAndPersistNews();
 //        System.out.println(newsProvider);
         String title = (String) context.getBean("title");
         System.out.println(title);
+        // 销毁对象
+        context.registerShutdownHook();
     }
 
     @Test
@@ -103,5 +116,22 @@ public class IOCTestTest {
 //        newsProvider.setPropertyValues(propertyValues);
         // 绑定完成
         return (BeanFactory) registry;
+    }
+
+
+    @Test
+    public void testBeanWrapper() throws Exception {
+        Object provider = Class.forName("com.melody.pojo.news.FXNewsProvider").getDeclaredConstructor().newInstance();
+        Object listener = Class.forName("com.melody.pojo.news.DowJonesNewsListener").getDeclaredConstructor().newInstance();
+        Object persister = Class.forName("com.melody.pojo.news.DowJonesNewsPersistener").getDeclaredConstructor().newInstance();
+
+        BeanWrapper newsProvider = new BeanWrapperImpl(provider);
+        newsProvider.setPropertyValue("newsListener",listener);
+        newsProvider.setPropertyValue("newsPersistener",persister);
+
+        assertTrue(newsProvider.getWrappedInstance() instanceof FXNewsProvider);
+        assertSame(provider,newsProvider.getWrappedClass());
+        assertSame(listener,newsProvider.getPropertyValue("newsListener"));
+        assertSame(persister,newsProvider.getPropertyValue("newsPersistener"));
     }
 }
