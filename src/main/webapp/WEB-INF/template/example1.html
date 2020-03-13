@@ -3,12 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <title>example1</title>
-    <script src="./statement.js"/>
+    <script src="statement.js"/>
+    <script src="createStatementData.js"/>
 </head>
 <body>
 <h1>example1</h1>
 </body>
 <script>
+
     // function statement(invoice,plays) {
     //     const statementData = {};
     //     statementData.customer = invoice.customer;
@@ -126,8 +128,8 @@
                 ]
             }
         ];
-        console.log(invoice[0]);
-        let result = htmlStatement(invoice[0],plays);
+        console.log("invoice[0]");
+        let result = statement(invoice[0],plays);
         console.log(result);
     }());
 </script>
