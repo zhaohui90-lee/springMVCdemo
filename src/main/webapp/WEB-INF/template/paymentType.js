@@ -1,122 +1,109 @@
 function chooseJsWayStep(){
-    console.log("payType:"+payType + "zf:" + zf);
-    czFlag = "0";
-    closeModal();
     // 费用类型:1.挂号缴费，2 处方缴费，3 住院预缴，5、充值
-    var trade_type = "2";
-    if(payType==1){//银行卡支付
-        $("#chargeList").hide();
-        $("#bankPay").show();
-// 				$(".btn").attr("onclick", "goHomeAndclose()");
-        $("#keyboard_input").val(zf);
-        initBankPay("bank",zf);
-    }else if(payType==2) {//支付宝扫码支付
-        $("#chargeList").hide();
-        $("#Scanpay").show();
-        $("#keyboard_input").val(zf);
-        scancode("alipayBar",zf,trade_type);
-    } else if(payType==3){ //微信扫码支付
-        $("#chargeList").hide();
-        $("#Scanpay").show();
-        $("#keyboard_input").val(zf);
-        scancode("wechatBar",zf,trade_type);
-    }else if(payType==5){// 信用付支付
-        $("#chargeList").hide();
-        $("#Scanpay").show();
-        $("#keyboard_input").val(zf);
-        payByCredit("CreditPay",zf,trade_type);
-    }else if(payType==4){// 刷脸支付
-        $("#chargeList").hide();
-        $("#Scanpay").show();
-        $("#keyboard_input").val(zf);
-        payByFace("alipayZoloz",zf,trade_type);
-    }else if(payType==6){// 浙里办
-        $("#chargeList").hide();
-        $("#Scanpay").show();
-        $("#keyboard_input").val(zf);
-        dzjkkPayInit("dzjkk",zf,yb,total,trade_type);
+    const trade_type = "2";
+    $("#chargeList").hide();
+    $("#Scanpay").show();
+    $("#keyboard_input").val(zf);
+    switch (payType) {
+        case 1: initBankPay("bank",zf);
+        break;
+        case 2: scancode("alipayBar",zf,trade_type);
+        break;
+        case 3: scancode("wechatBar",zf,trade_type);
+        break;
+        case 4: payByFace("alipayZoloz",zf,trade_type);
+        break;
+        case 5: payByCredit("CreditPay",zf,trade_type);
+        break;
+        case 6: dzjkkPayInit("dzjkk",zf,yb,total,trade_type);
+        break;
+        default:
+            throw new Error(`unknown type...`);
     }
-    $(".now").addClass("after");
-    $(".now").next(".before").eq(0).removeClass("before").addClass("now");
-    $(".now").eq(0).removeClass("now");
-    $(".n1 span").html("("+zf+"元)");
+    $(".now").addClass("after")
+        .next(".before").eq(0).removeClass("before")
+        .addClass("now").eq(0).removeClass("now");
+    $(".n1 span").html("("+this._zf+"元)");
 }
 
-function payInit(paytype,zf,trade_type) {
-    const payment = createPaymentType(paytype);
-    payment.action(zf);
-    payment.pay(zf);
+function payInit(paytype,data) {
+    const payment = createPaymentType(paytype,data);
+    payment.action(data.zf);
+    payment.pay(data);
     payment.afterAction(zf);
 }
 
-function createPaymentType(paytype) {
+function createPaymentType(paytype,data) {
     switch (paytype) {
-        case 1: return new BankcardPayment(paytype);
-        case 2: return new AlipayPayment(paytype);
-        case 3: return new WechatPayment(paytype);
-        case 4: return new CreditPayment(paytype);
-        case 5: return new AlipayZolozPayment(paytype);
-        case 6: return new PayByDzjkkPayment(paytype);
+        case 1: return new BankcardPayment(data);
+        case 2: return new AlipayPayment(data);
+        case 3: return new WechatPayment(data);
+        case 4: return new CreditPayment(data);
+        case 5: return new AlipayZolozPayment(data);
+        case 6: return new PayByDzjkkPayment(data);
         default:
             throw new Error(`unknown type...`);
     }
 }
 
 class BasicPayment {
-    constructor(paytype) {
-        this.paytype = paytype;
+    constructor(data) {
+        this._zf = data.zf;
+        this._yb = data.yb;
+        this._total = data.total;
     }
-    set action(zf){
+
+    action(){
         $("#chargeList").hide();
         $("#Scanpay").show();
-        $("#keyboard_input").val(zf);
+        $("#keyboard_input").val(this._zf);
     }
 
-    set pay(zf){
-        throw new Error("this is basicPatment...");
+    pay(data){
+        throw new Error("this is basicPayment...");
     }
 
-    set afterAction(zf){
+    afterAction(){
         $(".now").addClass("after")
             .next(".before").eq(0).removeClass("before")
             .addClass("now").eq(0).removeClass("now");
-        $(".n1 span").html("("+zf+"元)");
+        $(".n1 span").html("("+this._zf+"元)");
     }
 }
 
 class BankcardPayment extends BasicPayment{
-    set pay(zf){
-        initBankPay("bank",zf);
+    pay(data){
+        initBankPay("bank",data.zf);
     }
 }
 
 class AlipayPayment extends BasicPayment{
-    set pay(zf){
-        scancode("alipayBar",zf,trade_type);
+    pay(data){
+        scancode("alipayBar",data.zf);
     }
 }
 
 class WechatPayment extends BasicPayment{
-    set pay(zf){
-        scancode("wechatBar",zf,trade_type);
+    pay(data){
+        scancode("wechatBar",zf);
     }
 }
 
 class CreditPayment extends BasicPayment{
-    set pay(zf){
-        payByCredit("CreditPay",zf,trade_type);
+    pay(data){
+        payByCredit("CreditPay",data.zf);
     }
 }
 
 class AlipayZolozPayment extends BasicPayment{
-    set pay(zf){
-        payByFace("alipayZoloz",zf,trade_type);
+    pay(data){
+        payByFace("alipayZoloz",data.zf);
     }
 }
 
 class PayByDzjkkPayment extends BasicPayment{
-    set pay(zf){
-        dzjkkPayInit("dzjkk",zf,yb,total,trade_type);
+    pay(data){
+        dzjkkPayInit("dzjkk",data.zf,data.yb,data.total);
     }
 }
 
