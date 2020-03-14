@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <title>example1</title>
-    <script src="statement.js"></script>
-    <script src="createStatementData.js"></script>
+<!--    <script src="statement.js"></script>-->
+<!--    <script src="createStatementData.js"></script>-->
 </head>
 <body>
 <h1>example1</h1>
@@ -97,21 +97,46 @@
     //         return new Intl.NumberFormat("en-US",{style:"currency",currency:"USD",minimumFractionDigits:2}).format(aNumber/100);
     //     }
     //
-    // }
-    function printOwing(invoice) {
-        let outstanding = 0;
-
+    function printBanner() {
         console.log("*******************************");
         console.log("Customer Owes");
         console.log("*******************************");
-
-        for (const o of invoice.orders){
-            outstanding += o.amount;
-        }
-
-
     }
 
+    function recordDueDate(invoice) {
+        const today = Clock.today;
+        invoice.dueDate = new Date(today.getFullYear(), today.getMonth(), today.getDate() + 30);
+    }
+
+    function calculatorOutstanding(invoice) {
+        let result = 0;
+        for (const o of invoice.orders) {
+            result += o.amount;
+        }
+        return result;
+    }
+
+    //
+    function printOwing(invoice) {
+        // print banner
+        printBanner();
+        const outstanding = calculatorOutstanding(invoice);
+        // record due date
+        recordDueDate(invoice);
+        // print detail
+        printDetail(invoice,outstanding);
+    }
+
+    function printDetail(invoice,outstanding) {
+        console.log(`name: ${invoice.customer}`);
+        console.log(`amount: ${outstanding}`);
+        console.log(`due: ${invoice.dueDate.toLocaleDateString()}`);
+    }
+
+
+    const Clock = {
+        today: new Date()
+    };
 
 
 
@@ -140,9 +165,25 @@
                 ]
             }
         ];
-        console.log("invoice[0]");
-        let result = statement(invoice[0],plays);
-        console.log(result);
+
+        let test = {
+            "customer":"zhang san",
+            "orders":[
+                {
+                    "id":"01",
+                    "amount":100
+                },
+                {
+                    "id":"02",
+                    "amount":150
+                }
+            ]
+        };
+        // console.log("invoice[0]");
+        // let result = statement(invoice[0],plays);
+        // console.log(result);
+        // console.log(Clock.today.getFullYear())
+        printOwing(test);
     }());
 </script>
 </html>

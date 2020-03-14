@@ -77,9 +77,9 @@ class BasicPayment {
     }
 
     set afterAction(zf){
-        $(".now").addClass("after");
-        $(".now").next(".before").eq(0).removeClass("before").addClass("now");
-        $(".now").eq(0).removeClass("now");
+        $(".now").addClass("after")
+            .next(".before").eq(0).removeClass("before")
+            .addClass("now").eq(0).removeClass("now");
         $(".n1 span").html("("+zf+"元)");
     }
 }
