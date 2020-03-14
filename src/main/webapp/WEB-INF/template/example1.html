@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <title>example1</title>
-    <script src="statement.js"/>
-    <script src="createStatementData.js"/>
+    <script src="statement.js"></script>
+    <script src="createStatementData.js"></script>
 </head>
 <body>
 <h1>example1</h1>
@@ -98,7 +98,19 @@
     //     }
     //
     // }
+    function printOwing(invoice) {
+        let outstanding = 0;
 
+        console.log("*******************************");
+        console.log("Customer Owes");
+        console.log("*******************************");
+
+        for (const o of invoice.orders){
+            outstanding += o.amount;
+        }
+
+
+    }
 
 
 

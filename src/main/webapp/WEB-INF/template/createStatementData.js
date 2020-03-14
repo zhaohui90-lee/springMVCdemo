@@ -65,7 +65,7 @@ class PerformanceCalculator{
     }
 
     get volumeCredits(){
-        return Math.max(aPerformance.audience - 30,0);;
+        return Math.max(aPerformance.audience - 30,0);
     }
 }
 
