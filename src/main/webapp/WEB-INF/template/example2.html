@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>example2</title>
+</head>
+<body>
+<h1>example2</h1>
+</body>
+<script type="module">
+    import {defaultOwner} from "./defaultOwner.js";
+    import {statement} from "./statement.js";
+    // console.log(defaultOwner())
+
+    let plays = {
+        "hamlet":{"name":"Hamlet","type":"tragedy"},
+        "as-like":{"name":"As you like it","type":"comedy"},
+        "othello":{"name":"Othello","type":"tragedy"}
+    };
+    let invoice = [
+        {
+            "customer":"BigCo",
+            "performances":[
+                {
+                    "playID":"hamlet",
+                    "audience":55
+                },
+                {
+                    "playID":"as-like",
+                    "audience":35
+                },
+                {
+                    "playID":"othello",
+                    "audience":40
+                }
+            ]
+        }
+    ];
+
+    statement(invoice,plays);
+
+
+</script>
+</html>

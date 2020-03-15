@@ -1,5 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <module type="WEB_MODULE" version="4">
+  <component name="FacetManager">
+    <facet type="Spring" name="Spring">
+      <configuration>
+        <fileset id="fileset" name="Spring Application Context" removed="false">
+          <file>file://$MODULE_DIR$/src/main/java/com/melody/config/ConcertConfig.java</file>
+          <file>file://$MODULE_DIR$/src/main/java/com/melody/config/DessertConfig.java</file>
+          <file>file://$MODULE_DIR$/src/main/java/com/melody/config/flows/WebFlowConfig.java</file>
+          <file>file://$MODULE_DIR$/src/main/java/com/melody/config/spitter/WebMvcConfig.java</file>
+          <file>file://$MODULE_DIR$/src/main/webapp/META-INF/applicationEvent.xml</file>
+          <file>file://$MODULE_DIR$/src/main/webapp/META-INF/concert.xml</file>
+          <file>file://$MODULE_DIR$/src/main/webapp/META-INF/dateformat.xml</file>
+          <file>file://$MODULE_DIR$/src/main/webapp/WEB-INF/spring/dispatcher-config.xml</file>
+          <file>file://$MODULE_DIR$/src/main/webapp/META-INF/factorybean.xml</file>
+          <file>file://$MODULE_DIR$/src/main/webapp/META-INF/functionReplacer.xml</file>
+          <file>file://$MODULE_DIR$/src/main/webapp/META-INF/i18n.xml</file>
+          <file>file://$MODULE_DIR$/src/main/webapp/META-INF/mocktest.xml</file>
+          <file>file://$MODULE_DIR$/src/main/webapp/META-INF/myfactory.xml</file>
+          <file>file://$MODULE_DIR$/src/main/webapp/META-INF/myProperty.xml</file>
+          <file>file://$MODULE_DIR$/src/main/webapp/META-INF/news.xml</file>
+          <file>file://$MODULE_DIR$/src/main/webapp/META-INF/resourceLoader.xml</file>
+          <file>file://$MODULE_DIR$/src/main/webapp/META-INF/springAop.xml</file>
+        </fileset>
+      </configuration>
+    </facet>
+  </component>
   <component name="NewModuleRootManager">
     <content url="file://$MODULE_DIR$">
       <excludeFolder url="file://$MODULE_DIR$/.tmp" />
