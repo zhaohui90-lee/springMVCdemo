@@ -6,17 +6,17 @@ function chooseJsWayStep(){
     $("#keyboard_input").val(zf);
     switch (payType) {
         case 1: initBankPay("bank",zf);
-        break;
+            break;
         case 2: scancode("alipayBar",zf,trade_type);
-        break;
+            break;
         case 3: scancode("wechatBar",zf,trade_type);
-        break;
+            break;
         case 4: payByFace("alipayZoloz",zf,trade_type);
-        break;
+            break;
         case 5: payByCredit("CreditPay",zf,trade_type);
-        break;
+            break;
         case 6: dzjkkPayInit("dzjkk",zf,yb,total,trade_type);
-        break;
+            break;
         default:
             throw new Error(`unknown type...`);
     }
