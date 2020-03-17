@@ -10,14 +10,15 @@
 <script type="module">
     import {defaultOwner} from "./defaultOwner.js";
     import {statement} from "./statement.js";
+    import {setDefaultOwner} from "./defaultOwner.js";
     // console.log(defaultOwner())
 
-    let plays = {
+    const plays = {
         "hamlet":{"name":"Hamlet","type":"tragedy"},
         "as-like":{"name":"As you like it","type":"comedy"},
         "othello":{"name":"Othello","type":"tragedy"}
     };
-    let invoice = [
+    const invoice = [
         {
             "customer":"BigCo",
             "performances":[
@@ -37,7 +38,13 @@
         }
     ];
 
-    statement(invoice,plays);
+    // statement(invoice,plays);
+
+    console.log(defaultOwner());
+
+    console.log(setDefaultOwner({}));
+
+    // console.log(defaultOwner());
 
 
 </script>
