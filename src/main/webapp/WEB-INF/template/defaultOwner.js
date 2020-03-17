@@ -13,3 +13,18 @@ export function setDefaultOwner(arg) {
 }
 // 封装值
 const owner1 = defaultOwner();
+
+
+let globalParam = {
+    fName : "jack",
+    fAge : 20
+};
+
+export function getGlobalParam() {
+    return Object.assign({},globalParam);
+    // return globalParam;
+}
+
+export function setGlobalParam(arg) {
+    globalParam = arg;
+}
