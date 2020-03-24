@@ -1,6 +1,6 @@
 package collection;
 
-import com.melody.util.BinarySearch;
+import com.melody.util.algorithms.BinarySearch;
 import edu.princeton.cs.algs4.StdOut;
 import edu.princeton.cs.algs4.StdRandom;
 import edu.princeton.cs.algs4.Stopwatch;
