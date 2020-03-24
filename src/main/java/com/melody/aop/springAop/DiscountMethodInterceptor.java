@@ -4,10 +4,10 @@ import org.aopalliance.intercept.MethodInterceptor;
 import org.aopalliance.intercept.MethodInvocation;
 import org.apache.commons.lang.math.IntRange;
 
-public class
-
-
-DiscountMethodInterceptor implements MethodInterceptor {
+/**
+ * @author 40431
+ */
+public class DiscountMethodInterceptor implements MethodInterceptor {
     private static final Integer DEFAULT_DISCOUNT_RATIO = 80;
     private static final IntRange RATIO_RANGE = new IntRange(5,95);
 

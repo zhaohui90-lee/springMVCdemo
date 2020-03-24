@@ -6,6 +6,9 @@ import org.springframework.core.io.Resource;
 
 import java.lang.reflect.Method;
 
+/**
+ * @author melody
+ */
 public class ResourceSetupBeforeAdvice implements MethodBeforeAdvice {
     private Resource resource;
 

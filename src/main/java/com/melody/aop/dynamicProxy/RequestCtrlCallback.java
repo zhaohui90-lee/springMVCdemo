@@ -2,8 +2,9 @@ package com.melody.aop.dynamicProxy;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
+import org.springframework.cglib.proxy.MethodInterceptor;
+import org.springframework.cglib.proxy.MethodProxy;
 
-import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Method;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
@@ -11,21 +12,17 @@ import java.util.Calendar;
 import java.util.Date;
 
 /**
- * @author 40431
+ * @Author: melody
+ * @Date: 2020-03-24
  */
-public class RequestCtrlInvocationHandler implements InvocationHandler {
-    private final Log logger = LogFactory.getLog(RequestCtrlInvocationHandler.class);
-    private Object target;
-
-    public RequestCtrlInvocationHandler(Object target) {
-        this.target = target;
-    }
-
+public class RequestCtrlCallback implements MethodInterceptor {
+    private static final Log logger = LogFactory.getLog(RequestCtrlCallback.class);
     @Override
-    public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
+    public Object intercept(Object o, Method method, Object[] objects, MethodProxy methodProxy) throws Throwable {
+        String keyRequest = "request";
         Calendar cal = Calendar.getInstance();
         DateFormat df = new SimpleDateFormat("HH:mm:ss");
-        if ("request".equals(method.getName())){
+        if (keyRequest.equals(method.getName())){
             Date sysTime = df.parse(df.format(cal.getTime()));
             Date startTime = df.parse("00:00:00");
             Date endTime = df.parse("06:00:00");
@@ -33,7 +30,7 @@ public class RequestCtrlInvocationHandler implements InvocationHandler {
                 logger.warn("service is not available now...");
                 return null;
             }
-            return method.invoke(target,args);
+            return methodProxy.invokeSuper(o,objects);
         }
         return null;
     }

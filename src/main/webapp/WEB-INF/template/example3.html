@@ -5,35 +5,19 @@
     <title>example3</title>
 </head>
 <body>
-<h1>example3</h1>
+
 </body>
-<script type="module">
-    import {getGlobalParam} from "./defaultOwner.js";
-    import {setGlobalParam} from "./defaultOwner.js";
-
-
-    function f2() {
-        let param = getGlobalParam();
-        console.log("f2--->" + param.fName + ":" + param.fAge);
+<script>
+    function f() {
+        const array = ["a","b","c"];
+        let flag = true;
+        for (let i = 0 ;i < array.length;i++){
+            if (flag){
+                console.log(array[i]);
+            }
+        }
     }
 
-    function f1(name,age) {
-
-        console.log("f1--->" + name + ":" + age);
-    }
-
-
-
-
-    setGlobalParam({
-        fName : "jack",
-        fAge : 20
-    });
-
-    setGlobalParam("132");
-
-    console.log(getGlobalParam());
-
-    // f2();
+    f();
 </script>
 </html>

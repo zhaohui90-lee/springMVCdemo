@@ -7,6 +7,7 @@ import org.apache.commons.logging.LogFactory;
 
 /**
  * Spring AOP没有直接定义Around Advice，而是直接使用AOP Alliance的标准接口
+ * @author 40431
  */
 public class PerformanceMethodInterceptor implements MethodInterceptor {
     private final Log logger = LogFactory.getLog(this.getClass());
