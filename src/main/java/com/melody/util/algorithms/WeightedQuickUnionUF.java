@@ -1,4 +1,4 @@
-package com.melody.util;
+package com.melody.util.algorithms;
 
 /**
  * 加权quick-union

@@ -1,4 +1,4 @@
-package com.melody.util;
+package com.melody.util.algorithms;
 
 public class BinarySearch {
     public static int rank(int key,int[] a){

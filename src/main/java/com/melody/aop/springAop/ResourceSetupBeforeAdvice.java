@@ -8,6 +8,8 @@ import java.lang.reflect.Method;
 
 /**
  * @author melody
+ * before advice所实现的横切逻辑发生在相应的Joinpoint之前，在Before Advice执行完成之后，
+ * 程序执行流程将从Joinpoint处继续执行，所以before advice通常不会打断程序的执行流程
  */
 public class ResourceSetupBeforeAdvice implements MethodBeforeAdvice {
     private Resource resource;

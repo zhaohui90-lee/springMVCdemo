@@ -1,4 +1,4 @@
-package com.melody.util;
+package com.melody.util.algorithms;
 
 import edu.princeton.cs.algs4.In;
 
