@@ -9,8 +9,9 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 public class ConcertMain {
 
     public static void main(String[] args) {
-        ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("META-INF/concert.xml");
+        ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("classpath:log4j2.xml");
         Performance perform = context.getBean(Performance.class);
         perform.perform();
+
     }
 }

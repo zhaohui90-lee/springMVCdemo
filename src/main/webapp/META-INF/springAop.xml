@@ -7,4 +7,30 @@
         <property name="discountRatio" value="90"/>
         <property name="campaignAvailable" value="true"/>
     </bean>
+
+<!--  使用spring ioc的方式配置NameMatchMethodPointcutAdvisor  -->
+    <bean id="advice" class="org.springframework.aop.support.DelegatePerTargetObjectIntroductionInterceptor">
+        <property name="testFuture" ref="testFuture"/>
+        <property name="itest" ref="itest"/>
+    </bean>
+    <bean id="testFuture" class="com.melody.aop.perInstance.TesterFeatureIntroductionInterceptor"/>
+    <bean id="itest" class="com.melody.aop.perInstance.ITester"/>
+
+<!--    <bean id="advisor" class="org.springframework.aop.support.NameMatchMethodPointcutAdvisor">-->
+<!--        <property name="advice" ref="advice"/>-->
+<!--        <property name="mappedName">-->
+<!--            <list>-->
+<!--                <value>method1</value>-->
+<!--                <value>method2</value>-->
+<!--            </list>-->
+<!--        </property>-->
+<!--    </bean>-->
+
+    <bean id="advisor" class="org.springframework.aop.support.RegexpMethodPointcutAdvisor">
+        <property name="pattern">
+            <value>cn\.spring21\..*\.methodNamePattern</value>
+        </property>
+        <property name="advice" ref="advice"/>
+        <property name="per15" value="false"/>
+    </bean>
 </beans>
