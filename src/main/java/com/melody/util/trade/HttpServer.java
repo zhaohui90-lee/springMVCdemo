@@ -80,6 +80,12 @@ public class HttpServer {
                 // create Response object
                 Response response = new Response(output);
                 response.setRequest(request);
+                // check if this is a request for a servlet or a static response
+                if (request.getUri().startsWith("/servlet/")){
+
+                }else{
+
+                }
                 response.sendStaticResponse();
 
                 // close the socket
