@@ -6,6 +6,7 @@ package com.melody.util.connnector;
  */
 public class MyBootstrap {
     public static void main(String[] args) {
-
+        MyConnectors connectors = new MyConnectors();
+        connectors.start();
     }
 }
