@@ -14,5 +14,13 @@ public class MyHash {
         System.out.println(1^2);
 
         System.out.println(1<<30);
+
+        String[] hellos = "Hello Hello".split(" ");
+        System.out.println(hellos[0].hashCode());
+        System.out.println(hellos[1].hashCode());
+
+
+
+
     }
 }
