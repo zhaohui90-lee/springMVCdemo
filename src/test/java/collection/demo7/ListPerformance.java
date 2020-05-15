@@ -1,6 +1,5 @@
 package collection.demo7;
 
-import javax.annotation.processing.Generated;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
