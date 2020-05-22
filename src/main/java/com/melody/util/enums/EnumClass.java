@@ -16,4 +16,6 @@ public class EnumClass {
             System.out.println("----------------------");
         }
     }
+
+
 }
