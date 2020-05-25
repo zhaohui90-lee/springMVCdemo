@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+                        http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd
+                        http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+
+<!--    <context:component-scan base-package="com.melody"/>-->
+
+<!--  构造器注入  -->
+    <bean id="audienceXml" class="com.melody.aspect.AudienceXml">
+        <constructor-arg type="int" index="0">
+        <value>123132123</value>
+    </constructor-arg>
+        <constructor-arg type="java.lang.String" index="1">
+            <value>123</value>
+        </constructor-arg>
+    </bean>
+
+    <!--  setter注入 确保对象有默认构造器 -->
+    <bean id="piano" class="com.melody.pojo.concert.PianoPerformance">
+        <property name="name" ref="p_name"/>
+    </bean>
+    <bean id="p_name" class="java.lang.String"/>
+
+
+    <aop:config>
+        <aop:aspect ref="audienceXml">
+
+            <aop:pointcut id="performance" expression="execution(* com.melody.pojo.concert.Performance.perform(..))"/>
+
+            <aop:before pointcut-ref="performance" method="silenceCellPhones"/>
+
+            <aop:before pointcut-ref="performance" method="takeSeats"/>
+
+            <aop:after-returning pointcut-ref="performance" method="applause"/>
+
+            <aop:after-throwing pointcut-ref="performance" method="demandRefund"/>
+
+        </aop:aspect>
+    </aop:config>
+
+</beans>

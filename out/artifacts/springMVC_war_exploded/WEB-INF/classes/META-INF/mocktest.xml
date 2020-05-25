@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean class="org.springframework.beans.factory.config.CustomScopeConfigurer">
+        <property name="scopes">
+            <map>
+                <entry key="thread" value="com.melody.pojo.myscope.ThreadScope"/>
+            </map>
+        </property>
+    </bean>
+
+    <bean id="mock1" class="com.melody.pojo.mock.MockBusinessObject" scope="thread">
+        <constructor-arg type="int" value="123456"/>
+        <constructor-arg type="java.lang.String" value="werwer"/>
+    </bean>
+
+   <bean id="mock2" class="com.melody.pojo.mock.MockDemoObject">
+       <property name="param1">
+           <list>
+               <value>something</value>
+               <value>12313</value>
+               <value>adasdsa</value>
+           </list>
+       </property>
+       <property name="param2">
+           <list>
+               <value>stringValue1</value>
+               <value>stringValue2</value>
+           </list>
+       </property>
+       <property name="mapping">
+           <map>
+               <entry key="strValue">
+                   <value>something</value>
+               </entry>
+               <entry key="strValue" value="123123"/>
+
+           </map>
+       </property>
+       <property name="emailAddress">
+           <props>
+               <prop key="author">fhenn@163.com</prop>
+               <prop key="support">404314000@qq.com</prop>
+           </props>
+       </property>
+   </bean>
+
+    <bean id="classAInstance" class="com.melody.pojo.mock.ClassAInstance" depends-on="configSetup,configSetup2"/>
+    <bean id="configSetup" class="com.melody.pojo.mock.SystemConfigurationSetup"/>
+    <bean id="configSetup2" class="com.melody.pojo.mock.SystemConfigurationSetup2"/>
+
+    <bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+        <property name="locations">
+            <list>
+                <value>jdbc.properties</value>
+            </list>
+        </property>
+    </bean>
+
+</beans>

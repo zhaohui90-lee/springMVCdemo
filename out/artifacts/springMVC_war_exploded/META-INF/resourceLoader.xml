@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="fooBar" class="com.melody.myioc.FooBar">
+        <property name="resourceLoader" ref="resourceLoader"/>
+    </bean>
+    <bean id="resourceLoader" class="org.springframework.core.io.DefaultResourceLoader"/>
+
+    <bean id="fooBar2" class="com.melody.myioc.FooBar2"/>
+</beans>
