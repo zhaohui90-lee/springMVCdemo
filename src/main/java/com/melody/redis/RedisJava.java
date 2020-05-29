@@ -28,7 +28,7 @@ public class RedisJava {
         jedis.lpush("site-list","Google");
         jedis.lpush("site-list","Taobao");
         // 获取数据并且输出
-        List<String> list = jedis.lrange("site-list",0,10);
+        List<String> list = jedis.lrange("site-list",0,20);
         for (String s : list) {
             System.out.println("列表是：" + s);
         }
