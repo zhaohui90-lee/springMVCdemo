@@ -2,10 +2,9 @@ package com.melody.util.threads.demo4;
 
 import com.melody.util.threads.demo1.LiftOff;
 
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
-import java.util.concurrent.TimeUnit;
+import java.util.concurrent.*;
 
+import org.apache.commons.lang3.concurrent.BasicThreadFactory;
 /**
  * @Author: melody
  * @Date: 2020-05-27
@@ -27,7 +26,8 @@ public class SleepingTask extends LiftOff {
     }
 
     public static void main(String[] args) {
-        ExecutorService exec = Executors.newCachedThreadPool();
+        ScheduledExecutorService exec = new ScheduledThreadPoolExecutor(10,
+                new BasicThreadFactory.Builder().namingPattern("sleepingTask-schedule-pool-%d").daemon(true).build());
         for (int i = 0; i < COUNT_OF_THREADS; i++) {
             exec.execute(new SleepingTask());
         }
